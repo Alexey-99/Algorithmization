@@ -32,10 +32,8 @@ public class NumberSix {
 	private static void printMatrix(int[][] matrix) {
 		for (int i = 0; i < matrix.length; i++) {
 			for (int j = 0; j < matrix[i].length; j++) {
-				if ((j >= i) && (j < matrix[i].length - i) && (i < matrix.length / 2)) {
-					matrix[i][j] = 1;
-				}
-				if ((j >= matrix[i].length - 1 - i) && (j <= i) && (i >= matrix.length / 2)) {
+				if (((j >= i) && (j < matrix[i].length - i) && (i < matrix.length / 2))
+						|| ((j >= matrix[i].length - 1 - i) && (j <= i) && (i >= matrix.length / 2))) {
 					matrix[i][j] = 1;
 				}
 				System.out.print(matrix[i][j] + " ");
