@@ -10,6 +10,7 @@ import java.util.Random;
 public class NumberEight {
 
 	public static void main(String[] args) {
+		int columnOne = 0;
 		int linesCount = matrixLengthInitialization();
 		int columnCount = matrixLengthInitialization();
 		int[][] matrix = new int[linesCount][columnCount];
