@@ -13,7 +13,7 @@ public class NumberNine {
 		int columnCount = matrixLengthInitialization();
 		int[][] matrix = new int[linesCount][columnCount];
 		matrix = fillingMatrixRandomNumbers(matrix);
-
+		calculateSumColumn(matrix);
 	}
 
 	private static int matrixLengthInitialization() {
@@ -40,11 +40,21 @@ public class NumberNine {
 	}
 
 	private static void calculateSumColumn(int[][] matrix) {
-		
-		for (int i = 0; i < matrix.length; i++) {
-			for (int j = 0; j < matrix[i].length; j++) {
-				
+		int sum = 0;
+		int sumMax = 0;
+		int indexColumnSumMax = 0;
+		int indexLine = 0;
+		for (int i = 0; i < matrix[indexLine].length; i++) {
+			sum = 0;
+			for (int j = 0; j < matrix.length; j++) {
+				sum += matrix[j][i];
 			}
+			if (sumMax < sum) {
+				sumMax = sum;
+				indexColumnSumMax = i;
+			}
+			indexLine++;
 		}
+		System.out.println(indexColumnSumMax);
 	}
 }
