@@ -11,7 +11,6 @@ import java.util.Scanner;
 public class NumberEight {
 
 	public static void main(String[] args) {
-
 		int linesCount = matrixLengthInitialization();
 		int columnCount = matrixLengthInitialization();
 		int[][] matrix = new int[linesCount][columnCount];
