@@ -55,6 +55,6 @@ public class NumberNine {
 			}
 			indexLine++;
 		}
-		System.out.println(indexColumnSumMax);
+		System.out.println("В столбце под индексом " + indexColumnSumMax + " самая большая сумма чисел.");
 	}
 }
