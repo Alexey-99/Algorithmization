@@ -83,5 +83,4 @@ public class NumberEight {
 			System.out.println();
 		}
 	}
-
 }
