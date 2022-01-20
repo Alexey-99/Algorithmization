@@ -57,12 +57,34 @@ public class NumberThirteen {
 	}
 
 	private static int[][] sortColumnElementsInAscendingOrder(int[][] matrix) {
-
+		for (int i = 0; i < matrix[0].length; i++) {
+			for (int j = 0; j < matrix.length; j++) {
+				for (int f = j; f < matrix.length; f++) {
+					if (matrix[j][i] > matrix[f][i]) {
+						int tmp = matrix[j][i];
+						matrix[j][i] = matrix[f][i];
+						matrix[f][i] = tmp;
+					}	
+				}
+				
+			}
+		}
 		return matrix;
 	}
 
 	private static int[][] sortColumnElementsInDescendingOrder(int[][] matrix) {
-
+		for (int i = 0; i < matrix[0].length; i++) {
+			for (int j = 0; j < matrix.length; j++) {
+				for (int f = j; f < matrix.length; f++) {
+					if (matrix[j][i] < matrix[f][i]) {
+						int tmp = matrix[j][i];
+						matrix[j][i] = matrix[f][i];
+						matrix[f][i] = tmp;
+					}	
+				}
+				
+			}
+		}
 		return matrix;
 	}
 }
