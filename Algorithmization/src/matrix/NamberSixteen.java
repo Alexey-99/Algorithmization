@@ -42,8 +42,11 @@ public class NamberSixteen {
 		int sumSeriesVertically = seriesSumCalculation(matrix, sumNumberVertically);
 		int sumSeries = sumСomparison(matrix, sumSeriesHorizontally, sumSeriesVertically);
 
-		cornerPointCalculation(matrix, sumNumberHorizontally, sumNumberVertically, sumSeries);
+		matrix = cornerPointCalculation(matrix, sumNumberHorizontally, sumNumberVertically, sumSeries);
 		printMagicSquare(matrix);
+		matrix = calculationValueElementsMiddleMatrix(matrix, sumSeries);
+		printMagicSquare(matrix);
+		//TODO Выислить элементы
 
 	}
 
@@ -79,6 +82,7 @@ public class NamberSixteen {
 	}
 
 	private static void printMagicSquare(int[][] matrix) {
+		System.out.println();
 		for (int i = 0; i < matrix.length; i++) {
 			for (int j = 0; j < matrix[i].length; j++) {
 				System.out.print(matrix[i][j] + " ");
@@ -114,6 +118,29 @@ public class NamberSixteen {
 		}
 		System.out.println("Сумма 'Итого' равна: " + sumSeries);
 		return sumSeries;
+	}
+
+	private static int[][] calculationValueElementsMiddleMatrix(int[][] matrix, int sumSeries) {
+		for (int i = 1; i < matrix.length - 1; i++) {
+			if (i > 1) {
+				for (int j = 1; j < matrix[i].length - 1; j++) {
+					matrix[i][j] = sumSeries / matrix.length;
+				}
+			} else if (i == 1) {
+				for (int j = 1; j < matrix[i].length - 1; j++) {
+					if (j < matrix[i].length - 2) {
+						matrix[i][j] = sumSeries / matrix.length;
+					} else if (j == matrix[i].length - 1) {
+
+						//matrix[i][j] = sumSeries; // TODO подсчитать сумму диагонали. Потом вычесть от суммы ряда сумму
+													// диагонали
+					}
+
+				}
+			}
+
+		}
+		return matrix;
 	}
 
 }
