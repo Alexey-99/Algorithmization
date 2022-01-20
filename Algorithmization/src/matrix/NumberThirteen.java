@@ -64,9 +64,9 @@ public class NumberThirteen {
 						int tmp = matrix[j][i];
 						matrix[j][i] = matrix[f][i];
 						matrix[f][i] = tmp;
-					}	
+					}
 				}
-				
+
 			}
 		}
 		return matrix;
@@ -80,9 +80,8 @@ public class NumberThirteen {
 						int tmp = matrix[j][i];
 						matrix[j][i] = matrix[f][i];
 						matrix[f][i] = tmp;
-					}	
+					}
 				}
-				
 			}
 		}
 		return matrix;
