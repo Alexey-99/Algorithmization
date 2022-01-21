@@ -12,73 +12,32 @@
 
 package matrix;
 
-import java.util.Random;
+import java.util.Scanner;
 
 public class NamberSixteen {
 
 	public static void main(String[] args) {
-		int length = 4;// matrixLengthInitialization();
-		int[][] matrix = new int[length][length];
-		buildingAndPrintMagicSquare(matrix);
-
+		buildingAndPrintMagicSquare();
 	}
 
 	private static int matrixLengthInitialization() {
 		int length = 0;
-		Random rand = new Random();
-		while ((length <= 1) || (length >= 10)) {
-			length = rand.nextInt(10);
-		}
+		Scanner scan = new Scanner(System.in);
+		System.out.println("Введите размер магического квадрата");
+		length = scan.nextInt();
+		scan.close();
 		return length;
 	}
 
-	private static void buildingAndPrintMagicSquare(int[][] matrix) {
-		matrix = arrangementRandomNumbers(matrix);
-		printMagicSquare(matrix);
+	private static void buildingAndPrintMagicSquare() {
+		int length = matrixLengthInitialization();
+		if ((length % 2 == 0) && (length % 4 == 0)) { // 2
 
-		int sumNumberHorizontally = sumCalculationHorizontally(matrix);
-		int sumSeriesHorizontally = seriesSumCalculation(matrix, sumNumberHorizontally);
-		int sumNumberVertically = sumCalculationVertically(matrix);
-		int sumSeriesVertically = seriesSumCalculation(matrix, sumNumberVertically);
-		int sumSeries = sumСomparison(matrix, sumSeriesHorizontally, sumSeriesVertically);
+		} else if ((length % 2 == 0) && (length % 4 != 0)) { // 1
 
-		matrix = cornerPointCalculation(matrix, sumNumberHorizontally, sumNumberVertically, sumSeries);
-		printMagicSquare(matrix);
-		matrix = calculationValueElementsMiddleMatrix(matrix, sumSeries);
-		printMagicSquare(matrix);
-		//TODO Выислить элементы
+		} else if (length % 2 != 0) {
 
-	}
-
-	private static int[][] arrangementRandomNumbers(int[][] matrix) {
-		Random rand = new Random();
-		for (int i = 0; i < matrix.length - 1; i++) {
-			if (i == 0) {
-				for (int j = 0; j < matrix[i].length - 1; j++) {
-					matrix[i][j] = rand.nextInt(8) + 1;
-				}
-			} else if (i > 0) {
-				for (int j = 0; j < 1; j++) {
-					matrix[i][j] = rand.nextInt(8) + 1;
-				}
-			}
 		}
-		return matrix;
-	}
-
-	private static int seriesSumCalculation(int[][] matrix, int sum) {
-		do {
-			sum++;
-		} while (sum % matrix.length != 0);
-		System.out.println("Сумма 'после' равна: " + sum);
-		return sum;
-	}
-
-	private static int[][] cornerPointCalculation(int[][] matrix, int sumNumberHorizontally, int sumNumberVertically,
-			int sumSeries) {
-		matrix[0][matrix[0].length - 1] = sumSeries - sumNumberHorizontally;
-		matrix[matrix.length - 1][0] = sumSeries - sumNumberVertically;
-		return matrix;
 	}
 
 	private static void printMagicSquare(int[][] matrix) {
@@ -89,58 +48,6 @@ public class NamberSixteen {
 			}
 			System.out.println();
 		}
-	}
-
-	private static int sumCalculationHorizontally(int[][] matrix) {
-		int sum = 0;
-		for (int i = 0; i < matrix.length; i++) {
-			sum += matrix[0][i];
-		}
-		System.out.println("Сумма 'до' равна: " + sum);
-		return sum;
-	}
-
-	private static int sumCalculationVertically(int[][] matrix) {
-		int sum = 0;
-		for (int i = 0; i < matrix.length; i++) {
-			for (int j = 0; j < 1; j++) {
-				sum += matrix[i][j];
-			}
-		}
-		System.out.println("Сумма 'до' равна: " + sum);
-		return sum;
-	}
-
-	private static int sumСomparison(int[][] matrix, int sumSeriesHorizontally, int sumSeriesVertically) {
-		int sumSeries = sumSeriesHorizontally;
-		if (sumSeriesVertically > sumSeriesHorizontally) {
-			sumSeries = sumSeriesVertically;
-		}
-		System.out.println("Сумма 'Итого' равна: " + sumSeries);
-		return sumSeries;
-	}
-
-	private static int[][] calculationValueElementsMiddleMatrix(int[][] matrix, int sumSeries) {
-		for (int i = 1; i < matrix.length - 1; i++) {
-			if (i > 1) {
-				for (int j = 1; j < matrix[i].length - 1; j++) {
-					matrix[i][j] = sumSeries / matrix.length;
-				}
-			} else if (i == 1) {
-				for (int j = 1; j < matrix[i].length - 1; j++) {
-					if (j < matrix[i].length - 2) {
-						matrix[i][j] = sumSeries / matrix.length;
-					} else if (j == matrix[i].length - 1) {
-
-						//matrix[i][j] = sumSeries; // TODO подсчитать сумму диагонали. Потом вычесть от суммы ряда сумму
-													// диагонали
-					}
-
-				}
-			}
-
-		}
-		return matrix;
 	}
 
 }
