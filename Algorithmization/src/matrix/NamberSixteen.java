@@ -30,14 +30,52 @@ public class NamberSixteen {
 	}
 
 	private static void buildingAndPrintMagicSquare() {
-		int length = matrixLengthInitialization();
-		if ((length % 2 == 0) && (length % 4 == 0)) { // 2
+		int size = matrixLengthInitialization();
+		if ((size % 2 == 0) && (size % 4 == 0)) { // 2
+			buildingDoubleParityOrderSquare(size);
+		} else if ((size % 2 == 0) && (size % 4 != 0)) { // 1
 
-		} else if ((length % 2 == 0) && (length % 4 != 0)) { // 1
-
-		} else if (length % 2 != 0) {
+		} else if (size % 2 != 0) {
 
 		}
+	}
+
+	private static void buildingDoubleParityOrderSquare(int length) {
+		int[][] matrix = new int[length][length];
+		int magicConstant = calculateMagicConstant(length);
+		matrix = buildingMagicSquareCornerAndCenterElements(matrix);
+		printMagicSquare(matrix);
+
+	}
+
+	private static int calculateMagicConstant(int size) {
+		int magicConstant = (size * ((int) Math.pow(size, 2) + 1)) / 2;
+		return magicConstant;
+	}
+
+	private static int[][] buildingMagicSquareCornerAndCenterElements(int[][] matrix) {
+		int count = 0;
+		for (int i = 0; i < matrix.length; i++) {
+			for (int j = 0; j < matrix[i].length; j++) {
+				count++;
+				if ((i == 0 || i == matrix.length - 1) && ((j == 0) || (j == matrix[i].length - 1))) {
+					matrix[i][j] = count;
+				} else if ((i > 0 && i < matrix.length - 2) && (j > 0 && j < matrix[i].length - 2)) {
+					matrix[i][j] = count;
+				}
+			}
+		}
+
+		return matrix;
+	}
+
+	private static int[][] buildingMagicSquareExtremeElements(int[][] matrix) {
+		for (int i = 0; i < matrix.length; i++) {
+			for (int j = 0; j < matrix[i].length; j++) {
+				
+			}
+		}
+		return matrix;
 	}
 
 	private static void printMagicSquare(int[][] matrix) {
