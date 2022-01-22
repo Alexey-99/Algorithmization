@@ -40,12 +40,13 @@ public class NamberSixteen {
 		}
 	}
 
-	private static void buildingDoubleParityOrderSquare(int length) {
-		int[][] matrix = new int[length][length];
-		int magicConstant = calculateMagicConstant(length);
+	private static void buildingDoubleParityOrderSquare(int size) {
+		int[][] matrix = new int[size][size];
+		int magicConstant = calculateMagicConstant(size);
+		System.out.println("Магическая сумма:" + magicConstant);
 		matrix = buildingMagicSquareCornerAndCenterElements(matrix);
+		buildingMagicSquareExtremeElements(matrix);
 		printMagicSquare(matrix);
-
 	}
 
 	private static int calculateMagicConstant(int size) {
@@ -54,25 +55,43 @@ public class NamberSixteen {
 	}
 
 	private static int[][] buildingMagicSquareCornerAndCenterElements(int[][] matrix) {
+		int beginningCentralSquareTop = matrix.length / 4 - 1;
+		int beginningCentralSquareBottom = matrix.length - beginningCentralSquareTop - 1;
+		int beginningCentralSquareLeft = beginningCentralSquareTop;
+		int beginningCentralSquareRight = beginningCentralSquareBottom;
 		int count = 0;
 		for (int i = 0; i < matrix.length; i++) {
 			for (int j = 0; j < matrix[i].length; j++) {
 				count++;
 				if ((i == 0 || i == matrix.length - 1) && ((j == 0) || (j == matrix[i].length - 1))) {
 					matrix[i][j] = count;
-				} else if ((i > 0 && i < matrix.length - 2) && (j > 0 && j < matrix[i].length - 2)) {
+				} else if ((i > beginningCentralSquareTop && i < beginningCentralSquareBottom)
+						&& (j > beginningCentralSquareLeft && j < beginningCentralSquareRight)) {
 					matrix[i][j] = count;
 				}
 			}
 		}
-
 		return matrix;
 	}
 
 	private static int[][] buildingMagicSquareExtremeElements(int[][] matrix) {
-		for (int i = 0; i < matrix.length; i++) {
-			for (int j = 0; j < matrix[i].length; j++) {
-				
+		int beginningCentralSquareTop = matrix.length / 4 - 1;
+		int beginningCentralSquareBottom = matrix.length - beginningCentralSquareTop - 1;
+		int beginningCentralSquareLeft = beginningCentralSquareTop + 1;
+		int beginningCentralSquareRight = beginningCentralSquareBottom - 1;
+		int count = 0;
+		for (int i = matrix.length - 1; i >= 0; i--) {
+			for (int j = matrix[i].length - 1; j >= 0; j--) {
+				count++;
+				if ((i == 0 || i == matrix.length - 1) && (j > 0 && j < matrix[i].length - 1)) {
+					matrix[i][j] = count;
+				} else if ((i > beginningCentralSquareTop && i < beginningCentralSquareBottom)
+						&& (j < beginningCentralSquareLeft || j > beginningCentralSquareRight)) {
+					matrix[i][j] = count;
+				} else if ((i > 0 && i <= beginningCentralSquareTop)
+						|| (i < matrix.length - 1 && i >= beginningCentralSquareBottom)) {
+					matrix[i][j] = count;
+				}
 			}
 		}
 		return matrix;
@@ -87,5 +106,4 @@ public class NamberSixteen {
 			System.out.println();
 		}
 	}
-
 }
