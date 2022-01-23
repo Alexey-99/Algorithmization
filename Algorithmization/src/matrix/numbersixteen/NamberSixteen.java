@@ -35,6 +35,7 @@ public class NamberSixteen {
 			DoubleParityOrderSquare doubleParityOrderSquare = new DoubleParityOrderSquare();
 			doubleParityOrderSquare.buildingDoubleParityOrderSquare(size);
 		} else if ((size % 2 == 0) && (size % 4 != 0)) { //TODO 1
+			
 
 		} else if (size % 2 != 0) { //TODO 3
 
