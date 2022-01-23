@@ -10,7 +10,7 @@
  * 
  * */
 
-package matrix;
+package matrix.numbersixteen;
 
 import java.util.Scanner;
 
