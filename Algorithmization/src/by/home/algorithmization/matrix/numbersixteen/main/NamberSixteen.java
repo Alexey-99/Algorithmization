@@ -10,9 +10,11 @@
  * 
  * */
 
-package by.home.algorithmization.matrix.numbersixteen;
+package by.home.algorithmization.matrix.numbersixteen.main;
 
 import java.util.Scanner;
+
+import by.home.algorithmization.matrix.numbersixteen.magic_square.DoubleParityOrderSquare;
 
 public class NamberSixteen {
 
