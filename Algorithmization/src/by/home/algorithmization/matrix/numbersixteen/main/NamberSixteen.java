@@ -15,6 +15,8 @@ package by.home.algorithmization.matrix.numbersixteen.main;
 import java.util.Scanner;
 
 import by.home.algorithmization.matrix.numbersixteen.magic_square.DoubleParityOrderSquare;
+import by.home.algorithmization.matrix.numbersixteen.magic_square.OddOrderSquare;
+import by.home.algorithmization.matrix.numbersixteen.magic_square.SingleParityOrderSquare;
 
 public class NamberSixteen {
 
@@ -36,11 +38,12 @@ public class NamberSixteen {
 		if ((size % 2 == 0) && (size % 4 == 0)) { // 2
 			DoubleParityOrderSquare doubleParityOrderSquare = new DoubleParityOrderSquare();
 			doubleParityOrderSquare.buildingDoubleParityOrderSquare(size);
-		} else if ((size % 2 == 0) && (size % 4 != 0)) { //TODO 1
-			
-
-		} else if (size % 2 != 0) { //TODO 3
-
+		} else if ((size % 2 == 0) && (size % 4 != 0)) { // TODO 1
+			SingleParityOrderSquare singleParityOrderSquare = new SingleParityOrderSquare();
+			singleParityOrderSquare.buildSingleParityOrderSquare(size);
+		} else if (size % 2 != 0) { // TODO 3
+			OddOrderSquare oddOrderSquare = new OddOrderSquare();
+			oddOrderSquare.buildOddOrderSquare(size);
 		}
 	}
 }
