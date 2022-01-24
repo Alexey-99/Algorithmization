@@ -1,6 +1,6 @@
 /*Дана матрица. Вывести k-ю строку и p-й столбец матрицы. */
 
-package matrix;
+package by.home.algorithmization.matrix;
 
 import java.util.Random;
 

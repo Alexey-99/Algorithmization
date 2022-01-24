@@ -1,6 +1,6 @@
 /* Найти положительные элементы главной диагонали квадратной матрицы. */
 
-package matrix;
+package by.home.algorithmization.matrix;
 
 import java.util.Random;
 

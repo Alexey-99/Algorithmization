@@ -2,7 +2,7 @@
  * Вычислить сумму чисел, порядковые номера которых являются простыми числами.
  */
 
-package onedimensionalarrays;
+package by.home.algorithmization.onedimensionalarrays;
 
 import java.util.Arrays;
 import java.util.Random;

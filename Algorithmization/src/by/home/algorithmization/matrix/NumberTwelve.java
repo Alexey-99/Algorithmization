@@ -1,6 +1,6 @@
 /* Отсортировать строки матрицы по возрастанию и убыванию значений элементов.*/
 
-package matrix;
+package by.home.algorithmization.matrix;
 
 import java.util.Random;
 

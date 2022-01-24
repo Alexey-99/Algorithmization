@@ -9,7 +9,7 @@
  * n 0 0 0 0 0 0 0 0 0 
  * */
 
-package matrix;
+package by.home.algorithmization.matrix;
 
 import java.util.Random;
 

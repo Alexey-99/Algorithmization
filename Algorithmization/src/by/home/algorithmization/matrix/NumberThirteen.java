@@ -1,6 +1,6 @@
 /* Отсотрировать стобцы матрицы по возрастанию и убыванию значений эементов. */
 
-package matrix;
+package by.home.algorithmization.matrix;
 
 import java.util.Random;
 

@@ -1,6 +1,6 @@
 // В массив A [N] занесены натуральные числа. Найти сумму тех элементов, которые кратны данному К. 
 
-package onedimensionalarrays;
+package by.home.algorithmization.onedimensionalarrays;
 
 import java.util.Arrays;
 import java.util.Random;

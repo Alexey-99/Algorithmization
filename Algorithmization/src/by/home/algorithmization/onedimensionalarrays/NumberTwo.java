@@ -3,7 +3,7 @@
  * Подсчитать количество замен.
  */
 
-package onedimensionalarrays;
+package by.home.algorithmization.onedimensionalarrays;
 
 import java.util.Arrays;
 import java.util.Random;

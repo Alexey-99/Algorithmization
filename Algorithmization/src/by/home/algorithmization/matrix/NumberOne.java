@@ -1,6 +1,6 @@
 /* Дана матрица. Вывести на экран все нечетные столбцы, у которых первый элемент больше последнего. */
 
-package matrix;
+package by.home.algorithmization.matrix;
 
 import java.util.Random;
 

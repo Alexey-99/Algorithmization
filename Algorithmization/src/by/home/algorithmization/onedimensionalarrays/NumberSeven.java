@@ -1,6 +1,6 @@
 /* Даны действительные числа a1, a2 ,,, an . Найти  max( a1 + a2n ,a2 + a2n-1,an + an+1).*/
 
-package onedimensionalarrays;
+package by.home.algorithmization.onedimensionalarrays;
 
 import java.util.Arrays;
 import java.util.Random;

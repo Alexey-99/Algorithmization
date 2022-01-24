@@ -1,6 +1,6 @@
 /* Найдите наибольший элемент матрицы и заменить все нечетные элементы на него. */
 
-package matrix;
+package by.home.algorithmization.matrix;
 
 import java.util.Random;
 

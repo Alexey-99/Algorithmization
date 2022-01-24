@@ -1,6 +1,6 @@
 /*Сформировать случайную матрицу m x n, состоящую из нулей и единиц, причем в каждом столбце число единиц равно номеру столбца. */
 
-package matrix;
+package by.home.algorithmization.matrix;
 
 import java.util.Random;
 

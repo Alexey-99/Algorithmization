@@ -1,4 +1,4 @@
-package matrix.numbersixteen;
+package by.home.algorithmization.matrix.numbersixteen;
 
 public class DoubleParityOrderSquare {
 

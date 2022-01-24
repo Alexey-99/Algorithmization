@@ -4,7 +4,7 @@
  * и подсчитать количество положительных элементов в ней. 
  */
 
-package matrix;
+package by.home.algorithmization.matrix;
 
 import java.util.Random;
 

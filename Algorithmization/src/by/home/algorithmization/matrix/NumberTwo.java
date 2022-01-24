@@ -1,6 +1,6 @@
 /* Дана квадратная матрица. Вывести на экран элементы, стоящие на диагонали. */
 
-package matrix;
+package by.home.algorithmization.matrix;
 
 import java.util.Random;
 

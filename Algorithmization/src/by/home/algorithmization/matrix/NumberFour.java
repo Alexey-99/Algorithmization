@@ -1,18 +1,19 @@
 /* Сформировать квадратную матрицу порядка n по заданному образцу(n - четное): 
- * 1 1 1 ... 1 1 1 
- * 0 1 1 ... 1 1 0 
- * 0 0 1 ... 1 0 0 
- * . . . .   . . .  
- * . . .  .  . . .
- * . . .   . . . .
- * 0 1 1 ... 1 1 0 
- * 1 1 1 ... 1 1 1 
-*/
-package matrix;
+ * 1  2   3  ... n 
+ * n n-1 n-2 ... 1 
+ * 1  2   3  ... n 
+ * n n-1 n-2 ... 1  
+ * . . . . . .   .
+ * . . . . .  .  .
+ * . . . . .   . .
+ * n n-1 n-2 ... 1 
+ * */
+
+package by.home.algorithmization.matrix;
 
 import java.util.Random;
 
-public class NumberSix {
+public class NumberFour {
 
 	public static void main(String[] args) {
 		int n = matrixLengthInitialization();
@@ -31,12 +32,14 @@ public class NumberSix {
 
 	private static void printMatrix(int[][] matrix) {
 		for (int i = 0; i < matrix.length; i++) {
-			for (int j = 0; j < matrix[i].length; j++) {
-				if (((j >= i) && (j < matrix[i].length - i) && (i < matrix.length / 2))
-						|| ((j >= matrix[i].length - 1 - i) && (j <= i) && (i >= matrix.length / 2))) {
-					matrix[i][j] = 1;
+			if ((i == 0) || (i % 2 == 0)) {
+				for (int j = 0; j < matrix[i].length; j++) {
+					System.out.print(matrix[i][j] + (j + 1) + " ");
 				}
-				System.out.print(matrix[i][j] + " ");
+			} else if ((i != 0) && (i % 2 != 0)) {
+				for (int j = matrix[i].length - 1; j >= 0; j--) {
+					System.out.print(matrix[i][j] + (j + 1) + " ");
+				}
 			}
 			System.out.println();
 		}

@@ -2,7 +2,7 @@
  * Определить, какой столбец содержит максимальную сумму.
  */
 
-package matrix;
+package by.home.algorithmization.matrix;
 
 import java.util.Random;
 

@@ -3,7 +3,7 @@
  * Номера столбцов вводит пользователь с клавиатуры. 
  */
 
-package matrix;
+package by.home.algorithmization.matrix;
 
 import java.util.Random;
 import java.util.Scanner;

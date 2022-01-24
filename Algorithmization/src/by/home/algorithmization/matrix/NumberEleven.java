@@ -2,7 +2,7 @@
  * Вывести на экран саму матрицу и номера строк, в которых число 5 встречается три и более раз.
  * */
 
-package matrix;
+package by.home.algorithmization.matrix;
 
 import java.util.Random;
 

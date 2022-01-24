@@ -1,6 +1,6 @@
 // Даны целые числа а1 ,а2 ,..., аn . Вывести на печать только те числа, для которых аi > i
 
-package onedimensionalarrays;
+package by.home.algorithmization.onedimensionalarrays;
 
 import java.util.Arrays;
 import java.util.Random;

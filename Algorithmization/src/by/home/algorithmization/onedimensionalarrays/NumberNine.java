@@ -2,7 +2,7 @@
  * Если таких чисел несколько, то определить наименьшее из них. 
  */
 
-package onedimensionalarrays;
+package by.home.algorithmization.onedimensionalarrays;
 
 import java.util.Arrays;
 import java.util.Random;
