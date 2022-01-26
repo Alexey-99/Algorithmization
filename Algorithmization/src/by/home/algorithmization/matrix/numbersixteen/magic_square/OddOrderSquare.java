@@ -6,7 +6,6 @@ public class OddOrderSquare {
 		int[][] matrixEnlarged = new int[size + (size - 1)][size + (size - 1)];
 		int[][] matrix = new int[size][size];
 		buildOddOrderSquareEnlarged(matrixEnlarged, matrix);
-		printMagicSquare(matrixEnlarged);
 		transferFromMagnifiedSquareToMagicSquare(matrixEnlarged, matrix);
 		printMagicSquare(matrix);
 	}
@@ -31,14 +30,9 @@ public class OddOrderSquare {
 
 	private void fillingFourCellsSquare(int[][] matrixEnlarged, int[][] matrix) {
 		topMarginCheck(matrixEnlarged, matrix);
-		printMagicSquare(matrixEnlarged);
 		rightMarginCheck(matrixEnlarged, matrix);
-		printMagicSquare(matrixEnlarged);
 		bottomMarginCheck(matrixEnlarged, matrix);
-		printMagicSquare(matrixEnlarged);
 		leftMarginCheck(matrixEnlarged, matrix);
-		printMagicSquare(matrixEnlarged);
-
 	}
 
 	private void topMarginCheck(int[][] matrixEnlarged, int[][] matrix) {
@@ -46,7 +40,7 @@ public class OddOrderSquare {
 		for (int i = 0; i < iStartCount; i++) {
 			for (int j = 0; j < matrixEnlarged.length; j++) {
 				if (matrixEnlarged[i][j] != 0) {
-					matrixEnlarged[i + 5][j] = matrixEnlarged[i][j];
+					matrixEnlarged[i + matrix.length][j] = matrixEnlarged[i][j];
 				}
 			}
 		}
@@ -57,7 +51,7 @@ public class OddOrderSquare {
 		for (int i = iStartCount; i < matrixEnlarged.length; i++) {
 			for (int j = matrixEnlarged.length - iStartCount; j < matrixEnlarged.length; j++) {
 				if (matrixEnlarged[i][j] != 0) {
-					matrixEnlarged[i][j - 5] = matrixEnlarged[i][j];
+					matrixEnlarged[i][j - matrix.length] = matrixEnlarged[i][j];
 				}
 			}
 		}
@@ -68,7 +62,7 @@ public class OddOrderSquare {
 		for (int i = matrixEnlarged.length - iStartCount; i < matrixEnlarged.length; i++) {
 			for (int j = 0; j < matrixEnlarged.length; j++) {
 				if (matrixEnlarged[i][j] != 0) {
-					matrixEnlarged[i - 5][j] = matrixEnlarged[i][j];
+					matrixEnlarged[i - matrix.length][j] = matrixEnlarged[i][j];
 				}
 			}
 		}
@@ -79,7 +73,7 @@ public class OddOrderSquare {
 		for (int i = iStartCount; i < matrixEnlarged.length; i++) {
 			for (int j = 0; j < iStartCount; j++) {
 				if (matrixEnlarged[i][j] != 0) {
-					matrixEnlarged[i][j + 5] = matrixEnlarged[i][j];
+					matrixEnlarged[i][j + matrix.length] = matrixEnlarged[i][j];
 				}
 			}
 		}
@@ -87,10 +81,9 @@ public class OddOrderSquare {
 
 	private void transferFromMagnifiedSquareToMagicSquare(int[][] matrixEnlarged, int[][] matrix) {
 		int iCount = (matrixEnlarged.length - matrix.length) / 2;
-		for (int i = iCount; i < matrixEnlarged.length - 1; i++) {
-			for (int j = (matrixEnlarged.length - matrix.length) / 2; j < matrixEnlarged[i].length - 1; j++) {
+		for (int i = iCount; i < matrixEnlarged.length - iCount; i++) {
+			for (int j = (matrixEnlarged.length - matrix.length) / 2; j < matrixEnlarged[i].length - iCount; j++) {
 				matrix[i - iCount][j - iCount] = matrixEnlarged[i][j];
-				printMagicSquare(matrix);
 			}
 		}
 	}
