@@ -7,16 +7,23 @@ public class OddOrderSquare {
 		int[][] matrix = new int[size][size];
 		double iCount = (double) matrixEnlarged.length / 2 - 0.5;
 		int count = 0;
-		for (int i = (int) iCount; i >= 0; i--) {
-			count++;
-			for (int j = count - 1; j <= count - 1; j++) {
-				matrixEnlarged[i][j] = count;
-				printMagicSquare(matrixEnlarged);
-				
+		int jCount = 0;
+		int iMax = (int) (iCount + 3);
+		
+		for (int f = 0; f < matrix.length; f++) {
+			jCount = f;
+			for (int i = (int) iCount; i >= iCount - (matrix.length - 1); i--) {
+				count++;
+				for (int j = jCount; j <= jCount; j++) {
+					matrixEnlarged[i][j] = count;
+					printMagicSquare(matrixEnlarged);
+				}
+				jCount++;
 			}
+			iCount++;
+			
 		}
 		
-
 	}
 
 	private void printMagicSquare(int[][] matrix) {
