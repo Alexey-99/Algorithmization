@@ -48,8 +48,7 @@ public class SingleParityOrderSquare {
 						&& (matrixEnlarged[yCoordinate][xCoordinate] != count)) {
 					matrixEnlarged[yCoordinate - 2][xCoordinate - 1] = count;
 					printMagicSquare(matrixEnlarged);
-				}
-				else {
+				} else {
 					matrixEnlarged[yCoordinate][xCoordinate] = count;
 					printMagicSquare(matrixEnlarged);
 				}
