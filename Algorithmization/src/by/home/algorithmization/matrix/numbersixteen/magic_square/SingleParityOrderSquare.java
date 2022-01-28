@@ -20,7 +20,7 @@ public class SingleParityOrderSquare {
 			} else if (count > 1) {
 				yCoordinate--;
 				xCoordinate++;
-				if ((yCoordinate == 0) && (xCoordinate != 0)) {
+				if ((yCoordinate == 0) && (xCoordinate != squareSize)) {
 					yCoordinate += squareSize;
 					if (matrixEnlarged[yCoordinate][xCoordinate] == 0) {
 						matrixEnlarged[yCoordinate][xCoordinate] = count;
@@ -42,7 +42,9 @@ public class SingleParityOrderSquare {
 						printMagicSquare(matrixEnlarged);
 					}
 				} else if ((yCoordinate == 0) && (xCoordinate == squareSize)) {
-					matrixEnlarged[yCoordinate - 2][xCoordinate - 1] = count;
+					yCoordinate += 2;
+					xCoordinate -= 1;
+					matrixEnlarged[yCoordinate][xCoordinate] = count;
 					printMagicSquare(matrixEnlarged);
 				} else if ((matrixEnlarged[yCoordinate][xCoordinate] != 0)
 						&& (matrixEnlarged[yCoordinate][xCoordinate] != count)) {
