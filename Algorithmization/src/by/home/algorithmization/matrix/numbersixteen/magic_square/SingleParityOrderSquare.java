@@ -26,7 +26,7 @@ public class SingleParityOrderSquare {
 						matrixEnlarged[yCoordinate][xCoordinate] = count;
 						printMagicSquare(matrixEnlarged);
 					} else if (matrixEnlarged[yCoordinate][xCoordinate] != 0) {
-						matrixEnlarged[yCoordinate - 2][xCoordinate - 1] = count;
+						matrixEnlarged[yCoordinate + 2][xCoordinate - 1] = count;
 						printMagicSquare(matrixEnlarged);
 					}
 				} else if ((xCoordinate == squareSize) && (yCoordinate != 0)) {
@@ -38,7 +38,7 @@ public class SingleParityOrderSquare {
 						printMagicSquare(matrixEnlarged);
 					} else if ((matrixEnlarged[yCoordinate][xCoordinate] != 0)
 							&& (matrixEnlarged[yCoordinate][xCoordinate] != count)) {
-						matrixEnlarged[yCoordinate - 2][xCoordinate - 1] = count;
+						matrixEnlarged[yCoordinate + 2][xCoordinate - 1] = count;
 						printMagicSquare(matrixEnlarged);
 					}
 				} else if ((yCoordinate == 0) && (xCoordinate == squareSize)) {
@@ -46,7 +46,9 @@ public class SingleParityOrderSquare {
 					printMagicSquare(matrixEnlarged);
 				} else if ((matrixEnlarged[yCoordinate][xCoordinate] != 0)
 						&& (matrixEnlarged[yCoordinate][xCoordinate] != count)) {
-					matrixEnlarged[yCoordinate - 2][xCoordinate - 1] = count;
+					yCoordinate += 2;
+					xCoordinate -= 1;
+					matrixEnlarged[yCoordinate][xCoordinate] = count;
 					printMagicSquare(matrixEnlarged);
 				} else {
 					matrixEnlarged[yCoordinate][xCoordinate] = count;
