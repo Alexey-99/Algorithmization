@@ -27,7 +27,7 @@ public class NamberSixteen {
 	private static int matrixLengthInitialization() {
 		int length = 0;
 		Scanner scan = new Scanner(System.in);
-		System.out.println("Введите размер магического квадрата");
+		System.out.println("Введите размер (от 3 и больше) магического квадрата ");
 		length = scan.nextInt();
 		scan.close();
 		return length;
