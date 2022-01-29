@@ -14,9 +14,9 @@ package by.home.algorithmization.matrix.numbersixteen.main;
 
 import java.util.Scanner;
 
-import by.home.algorithmization.matrix.numbersixteen.magic_square.DoubleParityOrderSquare;
-import by.home.algorithmization.matrix.numbersixteen.magic_square.OddOrderSquare;
-import by.home.algorithmization.matrix.numbersixteen.magic_square.SingleParityOrderSquare;
+import by.home.algorithmization.matrix.numbersixteen.magicsquare.DoubleParityOrderSquare;
+import by.home.algorithmization.matrix.numbersixteen.magicsquare.OddOrderSquare;
+import by.home.algorithmization.matrix.numbersixteen.magicsquare.SingleParityOrderSquare;
 
 public class NamberSixteen {
 	

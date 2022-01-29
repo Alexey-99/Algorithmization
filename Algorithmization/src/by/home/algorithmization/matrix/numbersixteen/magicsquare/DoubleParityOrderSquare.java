@@ -1,4 +1,4 @@
-package by.home.algorithmization.matrix.numbersixteen.magic_square;
+package by.home.algorithmization.matrix.numbersixteen.magicsquare;
 
 public class DoubleParityOrderSquare {
 	// TODO ПРОВЕРИТЬ ЧТОБЫ НЕ БЫЛО МАГИЧЕСКИХ ЧИСЕЛ 
