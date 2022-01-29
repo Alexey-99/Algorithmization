@@ -75,19 +75,9 @@ public class SingleParityOrderSquare {
 			}
 		}
 		printMagicSquare(matrixEnlarged);
-		transferElements(matrixEnlarged);
+		transferElements(matrixEnlarged); // TODO Пересавить элементы
 		transferMagicSquare(matrixEnlarged, matrix);
 		printMagicSquare(matrix);
-	}
-
-	private int coordinateYZero(int[][] matrixEnlarged, int yCoordinate, int xCoordinate, int count) {
-
-		return yCoordinate;
-	}
-
-	private int coordinateXZero(int[][] matrixEnlarged, int yCoordinate, int xCoordinate, int count) {
-
-		return xCoordinate;
 	}
 
 	private void transferElements(int[][] matrixEnlarged) {
@@ -128,18 +118,6 @@ public class SingleParityOrderSquare {
 			}
 			System.out.print(" - " + sum);
 			System.out.println();
-		}
-	}
-
-	private void sumHozont(int[][] matrix) {
-
-		System.out.println();
-		for (int i = 0; i < matrix.length; i++) {
-
-			for (int j = 0; j < matrix[i].length; j++) {
-
-			}
-
 		}
 	}
 }
