@@ -75,25 +75,29 @@ public class SingleParityOrderSquare {
 			}
 		}
 		printMagicSquare(matrixEnlarged);
-		transferElements(matrixEnlarged); // TODO Пересавить элементы
+		transferElements(matrixEnlarged); 
 		transferMagicSquare(matrixEnlarged, matrix);
 		printMagicSquare(matrix);
 	}
 
 	private void transferElements(int[][] matrixEnlarged) {
 		int squareSize = matrixEnlarged.length / 2;
-		int firstNumberElement = 0;
-		int secondNumberElement = 1;
-		for (int i = 1; i <= (int) matrixEnlarged.length / 2; i++) {
-			for (int j = 0; j < 2; j++) {
-				if (i % 2 != 0 && j == firstNumberElement) {
-					int tmp = matrixEnlarged[i][firstNumberElement];
-					matrixEnlarged[i][firstNumberElement] = matrixEnlarged[i + squareSize][firstNumberElement];
-					matrixEnlarged[i + squareSize][firstNumberElement] = tmp;
-				}else if (i % 2 == 0 && j == secondNumberElement) {
-					int tmp = matrixEnlarged[i][secondNumberElement];
-					matrixEnlarged[i][secondNumberElement] = matrixEnlarged[i + squareSize][secondNumberElement];
-					matrixEnlarged[i + squareSize][secondNumberElement] = tmp;
+		int lengthLineRearrangedElements = (matrixEnlarged.length / 2 + 1) / 2;
+		int numberColumnsElementsRearranged = ((matrixEnlarged.length / 2 + 1) / 2) - 1;
+		for (int i = 1; i <= squareSize; i++) {
+			for (int j = 0; j < matrixEnlarged[i].length - 1; j++) {
+				if (i != lengthLineRearrangedElements && j < numberColumnsElementsRearranged) {
+					int tmp = matrixEnlarged[i][j];
+					matrixEnlarged[i][j] = matrixEnlarged[i + squareSize][j];
+					matrixEnlarged[i + squareSize][j] = tmp;
+				} else if (i == lengthLineRearrangedElements && j > 0 && j <= numberColumnsElementsRearranged) {
+					int tmp = matrixEnlarged[i][j];
+					matrixEnlarged[i][j] = matrixEnlarged[i + squareSize][j];
+					matrixEnlarged[i + squareSize][j] = tmp;
+				}else if (j >= matrixEnlarged[i].length - numberColumnsElementsRearranged) {
+					int tmp = matrixEnlarged[i][j];
+					matrixEnlarged[i][j] = matrixEnlarged[i + squareSize][j];
+					matrixEnlarged[i + squareSize][j] = tmp;
 				}
 			}
 		}
