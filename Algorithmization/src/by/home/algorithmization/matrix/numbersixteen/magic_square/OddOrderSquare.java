@@ -3,11 +3,21 @@ package by.home.algorithmization.matrix.numbersixteen.magic_square;
 public class OddOrderSquare {
 
 	public void buildOddOrderSquare(int size) {
+		calculateMagicConstant(size);
 		int[][] matrixEnlarged = new int[size + (size - 1)][size + (size - 1)];
 		int[][] matrix = new int[size][size];
 		buildOddOrderSquareEnlarged(matrixEnlarged, matrix);
 		transferFromMagnifiedSquareToMagicSquare(matrixEnlarged, matrix);
 		printMagicSquare(matrix);
+		sumColumn(matrix);
+		sumRows(matrix);
+		sumDiagonalFromLeftToRight(matrix);
+		sumDiagonalFromRightToLeft(matrix);
+	}
+	
+	private void calculateMagicConstant(int size) {
+		int magicConstant = (size * ((int) Math.pow(size, 2) + 1)) / 2;
+		System.out.println("Магическая сумма: " + magicConstant);
 	}
 
 	private void buildOddOrderSquareEnlarged(int[][] matrixEnlarged, int[][] matrix) {
@@ -92,9 +102,56 @@ public class OddOrderSquare {
 		System.out.println();
 		for (int i = 0; i < matrix.length; i++) {
 			for (int j = 0; j < matrix[i].length; j++) {
-				System.out.print(matrix[i][j] + " ");
+				System.out.printf("%2d ", matrix[i][j]);
 			}
 			System.out.println();
 		}
+	}
+
+	private void sumColumn(int[][] matrix) {
+		System.out.println();
+		System.out.print("Суммы чисел по столбцам: ");
+		int sum = 0;
+		for (int i = 0; i < matrix.length; i++) {
+			sum = 0;
+			for (int j = 0; j < matrix[i].length; j++) {
+				sum += matrix[j][i];
+			}
+			System.out.print(sum + " ");
+		}
+		System.out.println();
+	}
+
+	private void sumRows(int[][] matrix) {
+		System.out.print("Суммы чисел по строкам: ");
+		int sum = 0;
+		for (int i = 0; i < matrix.length; i++) {
+			sum = 0;
+			for (int j = 0; j < matrix[i].length; j++) {
+				sum += matrix[i][j];
+			}
+			System.out.print(sum + " ");
+		}
+		System.out.println();
+	}
+
+	private void sumDiagonalFromLeftToRight(int[][] matrix) {
+		int sum = 0;
+		for (int i = 0; i < matrix.length; i++) {
+			for (int j = i; j <= i; j++) {
+				sum += matrix[i][j];
+			}
+		}
+		System.out.println("Cумма диагонали с лева на права: " + sum);
+	}
+
+	private void sumDiagonalFromRightToLeft(int[][] matrix) {
+		int sum = 0;
+		for (int i = 0; i < matrix.length; i++) {
+			for (int j = matrix.length - 1 - i; j < matrix.length - i; j++) {
+				sum += matrix[i][j];
+			}
+		}
+		System.out.println("Сумма диагональ с права на лево: " + sum);
 	}
 }
