@@ -35,13 +35,13 @@ public class NamberSixteen {
 
 	private static void buildingAndPrintMagicSquare() {
 		int size = matrixLengthInitialization();
-		if ((size % 2 == 0) && (size % 4 == 0)) { // 2
+		if ((size % 2 == 0) && (size % 4 == 0)) {
 			DoubleParityOrderSquare doubleParityOrderSquare = new DoubleParityOrderSquare();
 			doubleParityOrderSquare.buildingDoubleParityOrderSquare(size);
-		} else if ((size % 2 == 0) && (size % 4 != 0)) { // TODO 1
+		} else if ((size % 2 == 0) && (size % 4 != 0)) { 
 			SingleParityOrderSquare singleParityOrderSquare = new SingleParityOrderSquare();
 			singleParityOrderSquare.buildSingleParityOrderSquare(size);
-		} else if (size % 2 != 0) { // 3
+		} else if (size % 2 != 0) {
 			OddOrderSquare oddOrderSquare = new OddOrderSquare();
 			oddOrderSquare.buildOddOrderSquare(size);
 		}
