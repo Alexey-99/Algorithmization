@@ -1,6 +1,7 @@
 package by.home.algorithmization.matrix.numbersixteen.magic_square;
 
 public class DoubleParityOrderSquare {
+	// TODO ПРОВЕРИТЬ ЧТОБЫ НЕ БЫЛО МАГИЧЕСКИХ ЧИСЕЛ 
 
 	public void buildingDoubleParityOrderSquare(int size) {
 		int[][] matrix = new int[size][size];

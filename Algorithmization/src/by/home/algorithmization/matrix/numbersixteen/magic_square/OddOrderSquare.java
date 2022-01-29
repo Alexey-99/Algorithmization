@@ -1,6 +1,7 @@
 package by.home.algorithmization.matrix.numbersixteen.magic_square;
 
 public class OddOrderSquare {
+	// TODO ПРОВЕРИТЬ ЧТОБЫ НЕ БЫЛО МАГИЧЕСКИХ ЧИСЕЛ 
 
 	public void buildOddOrderSquare(int size) {
 		calculateMagicConstant(size);

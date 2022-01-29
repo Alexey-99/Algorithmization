@@ -1,6 +1,7 @@
 package by.home.algorithmization.matrix.numbersixteen.magic_square;
 
 public class SingleParityOrderSquare {
+	// TODO ПРОВЕРИТЬ ЧТОБЫ НЕ БЫЛО МАГИЧЕСКИХ ЧИСЕЛ 
 
 	public void buildSingleParityOrderSquare(int size) {
 		calculateMagicConstant(size);

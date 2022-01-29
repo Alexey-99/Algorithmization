@@ -19,12 +19,14 @@ import by.home.algorithmization.matrix.numbersixteen.magic_square.OddOrderSquare
 import by.home.algorithmization.matrix.numbersixteen.magic_square.SingleParityOrderSquare;
 
 public class NamberSixteen {
+	
+	// TODO ПРОВЕРИТЬ ЧТОБЫ НЕ БЫЛО МАГИЧЕСКИХ ЧИСЕЛ 
 
 	public static void main(String[] args) {
 		buildingAndPrintMagicSquare();
 	}
 
-	private static int matrixLengthInitialization() {
+	private static int matrixLengthInitialization() { //TODO ПРОВЕРКА ЧТО ВВЕДЕНО ЧИСЛО НЕ МЕНЕЕ 3 И ЧИСЛО ЭТО ВООБЩЕ
 		int length = 0;
 		Scanner scan = new Scanner(System.in);
 		System.out.println("Введите размер (не менее 3-ёх) магического квадрата ");
