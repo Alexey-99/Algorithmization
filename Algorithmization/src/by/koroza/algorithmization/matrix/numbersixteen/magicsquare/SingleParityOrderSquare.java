@@ -1,7 +1,6 @@
 package by.koroza.algorithmization.matrix.numbersixteen.magicsquare;
 
 public class SingleParityOrderSquare {
-	// TODO ПРОВЕРИТЬ ЧТОБЫ НЕ БЫЛО МАГИЧЕСКИХ ЧИСЕЛ 
 
 	public void buildSingleParityOrderSquare(int size) {
 		calculateMagicConstant(size);
@@ -17,8 +16,10 @@ public class SingleParityOrderSquare {
 		int numberStepsDown = 2;
 		int numberStepsLeft = 1;
 		double x = (double) size / 4;
+		int emptyCage = 0;
+		int numberVirtuallyDivisibleSquaresInMagicSquare = 4;
 
-		for (int i = 0; i < 4; i++) {
+		for (int i = 0; i < numberVirtuallyDivisibleSquaresInMagicSquare; i++) {
 			if (i == 0) {
 				yCoordinate = 1;
 				xCoordinate = (int) x;
@@ -49,20 +50,20 @@ public class SingleParityOrderSquare {
 					xCoordinate++;
 					if ((yCoordinate == upperLimit) && (xCoordinate != rightLimit)) {
 						yCoordinate += squareSize;
-						if (matrixEnlarged[yCoordinate][xCoordinate] == 0) {
+						if (matrixEnlarged[yCoordinate][xCoordinate] == emptyCage) {
 							matrixEnlarged[yCoordinate][xCoordinate] = count;
 						}
 					} else if ((xCoordinate == rightLimit) && (yCoordinate != upperLimit)) {
 						xCoordinate -= squareSize;
 						matrixEnlarged[yCoordinate][xCoordinate] = count;
-						if (matrixEnlarged[yCoordinate][xCoordinate] == 0) {
+						if (matrixEnlarged[yCoordinate][xCoordinate] == emptyCage) {
 							matrixEnlarged[yCoordinate][xCoordinate] = count;
 						}
 					} else if ((yCoordinate == upperLimit) && (xCoordinate == rightLimit)) {
 						yCoordinate += numberStepsDown;
 						xCoordinate -= numberStepsLeft;
 						matrixEnlarged[yCoordinate][xCoordinate] = count;
-					} else if ((matrixEnlarged[yCoordinate][xCoordinate] != 0)
+					} else if ((matrixEnlarged[yCoordinate][xCoordinate] != emptyCage)
 							&& (matrixEnlarged[yCoordinate][xCoordinate] != count)) {
 						yCoordinate += numberStepsDown;
 						xCoordinate -= numberStepsLeft;
