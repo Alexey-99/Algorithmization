@@ -4,7 +4,6 @@
 
 package by.koroza.algorithmization.sorting;
 
-import java.util.Arrays;
 import java.util.Random;
 
 public class NumberOne {
@@ -12,14 +11,19 @@ public class NumberOne {
 	public static void main(String[] args) {
 		int lengthFirstArray = matrixLengthInitialization();
 		int numberK = findingRandomNumber(lengthFirstArray);
+		System.out.println("Индекс элемента после которого будет вставляться второй массив чисел: " + numberK);
 		int lengthSecondArray = matrixLengthInitialization();
 		int[] firstArray = new int[lengthFirstArray + lengthSecondArray];
 		int[] secondArray = new int[lengthSecondArray];
 		assigningRandomNumbersArray(firstArray, lengthFirstArray);
-		System.out.println(Arrays.toString(firstArray));
+		System.out.print("Первый массив чисел: ");
+		printArray(firstArray);
 		assigningRandomNumbersArray(secondArray, lengthSecondArray);
-		System.out.println(Arrays.toString(secondArray));
+		System.out.print("Второй массив чисел: ");
+		printArray(secondArray);
 		unionArrays(firstArray, secondArray, numberK);
+		System.out.print("Массив в котором объединены первый и второй массив: ");
+		printArray(firstArray);
 	}
 
 	private static int matrixLengthInitialization() {
@@ -42,7 +46,6 @@ public class NumberOne {
 		do {
 			k = rand.nextInt(lengthFirstArray);
 		} while (k > lengthFirstArray - 2);
-		System.out.println(k + " ");
 		return k;
 	}
 
@@ -63,6 +66,12 @@ public class NumberOne {
 				}
 			}
 		}
-		System.out.println(Arrays.toString(firstArray));
+	}
+	
+	private static void printArray(int[] array) {
+		for (int i = 0; i < array.length; i++) {
+			System.out.print(array[i] + " ");
+		}
+		System.out.println();
 	}
 }
