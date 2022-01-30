@@ -1,7 +1,6 @@
 package by.koroza.algorithmization.matrix.numbersixteen.magicsquare;
 
 public class DoubleParityOrderSquare {
-	// TODO ПРОВЕРИТЬ ЧТОБЫ НЕ БЫЛО МАГИЧЕСКИХ ЧИСЕЛ 
 
 	public void buildingDoubleParityOrderSquare(int size) {
 		int[][] matrix = new int[size][size];
@@ -22,14 +21,15 @@ public class DoubleParityOrderSquare {
 	}
 
 	private void buildingMagicSquareCornerAndCenterElements(int[][] matrix) {
-		int beginningCentralSquareTop = matrix.length / 4 - 1;
+		int numberVirtuallyDivisibleSquaresInMagicSquare = 4;
+		int beginningCentralSquareTop = matrix.length / numberVirtuallyDivisibleSquaresInMagicSquare - 1;
 		int beginningCentralSquareBottom = matrix.length - beginningCentralSquareTop - 1;
 		int beginningCentralSquareLeft = beginningCentralSquareTop;
 		int beginningCentralSquareRight = beginningCentralSquareBottom;
-		int bottomRowTopLeftSquare = matrix.length / 4 - 1;
-		int topRowBottomLeftSquare = matrix.length - (matrix.length / 4);
-		int lastRightColumnTopLeftSquare = matrix.length / 4 - 1;
-		int lastLeftColumnTopRightSquare = matrix.length - (matrix.length / 4);
+		int bottomRowTopLeftSquare = matrix.length / numberVirtuallyDivisibleSquaresInMagicSquare - 1;
+		int topRowBottomLeftSquare = matrix.length - (matrix.length / numberVirtuallyDivisibleSquaresInMagicSquare);
+		int lastRightColumnTopLeftSquare = matrix.length / numberVirtuallyDivisibleSquaresInMagicSquare - 1;
+		int lastLeftColumnTopRightSquare = matrix.length - (matrix.length / numberVirtuallyDivisibleSquaresInMagicSquare);
 		int count = 0;
 		for (int i = 0; i < matrix.length; i++) {
 			for (int j = 0; j < matrix[i].length; j++) {
@@ -46,10 +46,11 @@ public class DoubleParityOrderSquare {
 	}
 
 	private void buildingMagicSquareExtremeElements(int[][] matrix) {
-		int bottomRowTopLeftSquare = matrix.length / 4 - 1;
+		int numberVirtuallyDivisibleSquaresInMagicSquare = 4;
+		int bottomRowTopLeftSquare = matrix.length / numberVirtuallyDivisibleSquaresInMagicSquare - 1;
 		int topRowBottomLeftSquare = matrix.length - (matrix.length / 4);
-		int lastRightColumnTopLeftSquare = matrix.length / 4 - 1;
-		int lastLeftColumnTopRightSquare = matrix.length - (matrix.length / 4);
+		int lastRightColumnTopLeftSquare = matrix.length / numberVirtuallyDivisibleSquaresInMagicSquare - 1;
+		int lastLeftColumnTopRightSquare = matrix.length - (matrix.length / numberVirtuallyDivisibleSquaresInMagicSquare);
 		int count = 0;
 		for (int i = matrix.length - 1; i >= 0; i--) {
 			for (int j = matrix[i].length - 1; j >= 0; j--) {
@@ -72,7 +73,7 @@ public class DoubleParityOrderSquare {
 		System.out.println();
 		for (int i = 0; i < matrix.length; i++) {
 			for (int j = 0; j < matrix[i].length; j++) {
-				System.out.printf("%2d ", matrix[i][j]);
+				System.out.printf("%3d ", matrix[i][j]);
 			}
 			System.out.println();
 		}

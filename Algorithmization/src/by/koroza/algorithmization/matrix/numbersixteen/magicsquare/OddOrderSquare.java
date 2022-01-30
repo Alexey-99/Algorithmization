@@ -1,7 +1,6 @@
 package by.koroza.algorithmization.matrix.numbersixteen.magicsquare;
 
 public class OddOrderSquare {
-	// TODO ПРОВЕРИТЬ ЧТОБЫ НЕ БЫЛО МАГИЧЕСКИХ ЧИСЕЛ 
 
 	public void buildOddOrderSquare(int size) {
 		calculateMagicConstant(size);
@@ -22,7 +21,8 @@ public class OddOrderSquare {
 	}
 
 	private void buildOddOrderSquareEnlarged(int[][] matrixEnlarged, int[][] matrix) {
-		double iStartCount = (double) matrixEnlarged.length / 2 - 0.5;
+		int numberSideMargins = 2;
+		double iStartCount = (double) matrixEnlarged.length / numberSideMargins - 0.5;
 		int count = 0;
 		int jCount = 0;
 		for (int f = 0; f < matrix.length; f++) {
@@ -47,10 +47,12 @@ public class OddOrderSquare {
 	}
 
 	private void topMarginCheck(int[][] matrixEnlarged, int[][] matrix) {
-		int iStartCount = (matrixEnlarged.length - matrix.length) / 2;
+		int numberSideMargins = 2;
+		int emptyCage = 0;
+		int iStartCount = (matrixEnlarged.length - matrix.length) / numberSideMargins;
 		for (int i = 0; i < iStartCount; i++) {
 			for (int j = 0; j < matrixEnlarged.length; j++) {
-				if (matrixEnlarged[i][j] != 0) {
+				if (matrixEnlarged[i][j] != emptyCage) {
 					matrixEnlarged[i + matrix.length][j] = matrixEnlarged[i][j];
 				}
 			}
@@ -58,10 +60,12 @@ public class OddOrderSquare {
 	}
 
 	private void rightMarginCheck(int[][] matrixEnlarged, int[][] matrix) {
-		int iStartCount = (matrixEnlarged.length - matrix.length) / 2;
+		int numberSideMargins = 2;
+		int emptyCage = 0;
+		int iStartCount = (matrixEnlarged.length - matrix.length) / numberSideMargins;
 		for (int i = iStartCount; i < matrixEnlarged.length; i++) {
 			for (int j = matrixEnlarged.length - iStartCount; j < matrixEnlarged.length; j++) {
-				if (matrixEnlarged[i][j] != 0) {
+				if (matrixEnlarged[i][j] != emptyCage) {
 					matrixEnlarged[i][j - matrix.length] = matrixEnlarged[i][j];
 				}
 			}
@@ -69,10 +73,12 @@ public class OddOrderSquare {
 	}
 
 	private void bottomMarginCheck(int[][] matrixEnlarged, int[][] matrix) {
-		int iStartCount = (matrixEnlarged.length - matrix.length) / 2;
+		int numberSideMargins = 2;
+		int emptyCage = 0;
+		int iStartCount = (matrixEnlarged.length - matrix.length) / numberSideMargins;
 		for (int i = matrixEnlarged.length - iStartCount; i < matrixEnlarged.length; i++) {
 			for (int j = 0; j < matrixEnlarged.length; j++) {
-				if (matrixEnlarged[i][j] != 0) {
+				if (matrixEnlarged[i][j] != emptyCage) {
 					matrixEnlarged[i - matrix.length][j] = matrixEnlarged[i][j];
 				}
 			}
@@ -80,10 +86,12 @@ public class OddOrderSquare {
 	}
 
 	private void leftMarginCheck(int[][] matrixEnlarged, int[][] matrix) {
-		int iStartCount = (matrixEnlarged.length - matrix.length) / 2;
+		int numberSideMargins = 2;
+		int emptyCage = 0;
+		int iStartCount = (matrixEnlarged.length - matrix.length) / numberSideMargins;
 		for (int i = iStartCount; i < matrixEnlarged.length; i++) {
 			for (int j = 0; j < iStartCount; j++) {
-				if (matrixEnlarged[i][j] != 0) {
+				if (matrixEnlarged[i][j] != emptyCage) {
 					matrixEnlarged[i][j + matrix.length] = matrixEnlarged[i][j];
 				}
 			}
@@ -91,9 +99,10 @@ public class OddOrderSquare {
 	}
 
 	private void transferFromMagnifiedSquareToMagicSquare(int[][] matrixEnlarged, int[][] matrix) {
-		int iCount = (matrixEnlarged.length - matrix.length) / 2;
+		int numberSideMargins = 2;
+		int iCount = (matrixEnlarged.length - matrix.length) / numberSideMargins;
 		for (int i = iCount; i < matrixEnlarged.length - iCount; i++) {
-			for (int j = (matrixEnlarged.length - matrix.length) / 2; j < matrixEnlarged[i].length - iCount; j++) {
+			for (int j = (matrixEnlarged.length - matrix.length) / numberSideMargins; j < matrixEnlarged[i].length - iCount; j++) {
 				matrix[i - iCount][j - iCount] = matrixEnlarged[i][j];
 			}
 		}

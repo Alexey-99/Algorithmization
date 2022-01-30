@@ -15,9 +15,10 @@ public class SingleParityOrderSquare {
 		int squareSize = matrix.length / 2;
 		int numberStepsDown = 2;
 		int numberStepsLeft = 1;
-		double x = (double) size / 4;
-		int emptyCage = 0;
 		int numberVirtuallyDivisibleSquaresInMagicSquare = 4;
+		double x = (double) size / numberVirtuallyDivisibleSquaresInMagicSquare;
+		int emptyCage = 0;
+		
 
 		for (int i = 0; i < numberVirtuallyDivisibleSquaresInMagicSquare; i++) {
 			if (i == 0) {
