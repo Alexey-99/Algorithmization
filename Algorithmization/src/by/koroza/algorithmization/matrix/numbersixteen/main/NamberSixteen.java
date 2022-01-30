@@ -20,13 +20,27 @@ import by.koroza.algorithmization.matrix.numbersixteen.magicsquare.SingleParityO
 
 public class NamberSixteen {
 
-	// TODO ПРОВЕРИТЬ ЧТОБЫ НЕ БЫЛО МАГИЧЕСКИХ ЧИСЕЛ
-
 	public static void main(String[] args) {
 		buildingAndPrintMagicSquare();
 	}
 
-	private static int matrixLengthInitialization() { 
+	private static void buildingAndPrintMagicSquare() {
+		int size = matrixSizeInitialization();
+		int checkForDividingNumberByTwo = 2;
+		int checkForDividingNumberByFour = 4;
+		if ((size % checkForDividingNumberByTwo == 0) && (size % checkForDividingNumberByFour == 0)) {
+			DoubleParityOrderSquare doubleParityOrderSquare = new DoubleParityOrderSquare();
+			doubleParityOrderSquare.buildingDoubleParityOrderSquare(size);
+		} else if ((size % checkForDividingNumberByTwo == 0) && (size % checkForDividingNumberByFour != 0)) {
+			SingleParityOrderSquare singleParityOrderSquare = new SingleParityOrderSquare();
+			singleParityOrderSquare.buildSingleParityOrderSquare(size);
+		} else if (size % checkForDividingNumberByTwo != 0) {
+			OddOrderSquare oddOrderSquare = new OddOrderSquare();
+			oddOrderSquare.buildOddOrderSquare(size);
+		}
+	}
+
+	private static int matrixSizeInitialization() {
 		int size = 0;
 		Scanner scan = new Scanner(System.in);
 		boolean flag = false;
@@ -70,19 +84,5 @@ public class NamberSixteen {
 		}
 		System.out.println("Введите, пожалуйста, размер магического квадрата, больше 2");
 		return flag;
-	}
-
-	private static void buildingAndPrintMagicSquare() {
-		int size = matrixLengthInitialization();
-		if ((size % 2 == 0) && (size % 4 == 0)) {
-			DoubleParityOrderSquare doubleParityOrderSquare = new DoubleParityOrderSquare();
-			doubleParityOrderSquare.buildingDoubleParityOrderSquare(size);
-		} else if ((size % 2 == 0) && (size % 4 != 0)) {
-			SingleParityOrderSquare singleParityOrderSquare = new SingleParityOrderSquare();
-			singleParityOrderSquare.buildSingleParityOrderSquare(size);
-		} else if (size % 2 != 0) {
-			OddOrderSquare oddOrderSquare = new OddOrderSquare();
-			oddOrderSquare.buildOddOrderSquare(size);
-		}
 	}
 }
