@@ -20,10 +20,8 @@ public class NumberFour {
 		printArray(array);
 		System.out.print("Массив сортированный по возростанию: ");
 		sortingExchangesInAscendingOrder(array);
-		printArray(array);
 		System.out.print("Массив сортированный по убыванию: ");
 		sortingExchangesInDescendingOrder(array);
-		printArray(array);
 	}
 
 	private static int arrayLengthInitialization() {
@@ -40,8 +38,9 @@ public class NumberFour {
 		}
 	}
 
-	private static void sortingExchangesInAscendingOrder(int[] array) {
+	private static void sortingExchangesInAscendingOrder(int[] array) { // TODO ПОСЧИТАТЬ КОЛИЧЕСТВО ПЕРЕРСТАНОВОК
 		boolean flag = true;
+		int counterPermutation = 0;
 		while (flag) {
 			flag = false;
 			for (int i = 0; i < array.length - 1; i++) {
@@ -50,13 +49,17 @@ public class NumberFour {
 					array[i] = array[i + 1];
 					array[i + 1] = tmp;
 					flag = true;
+					counterPermutation++;
 				}
 			}
 		}
+		printArray(array);
+		System.out.println("Количество перестановок: " + counterPermutation);
 	}
 
-	private static void sortingExchangesInDescendingOrder(int[] array) {
+	private static void sortingExchangesInDescendingOrder(int[] array) { // TODO ПОСЧИТАТЬ КОЛИЧЕСТВО ПЕРЕРСТАНОВОК
 		boolean flag = true;
+		int counterPermutation = 0;
 		while (flag) {
 			flag = false;
 			for (int i = 0; i < array.length - 1; i++) {
@@ -65,9 +68,12 @@ public class NumberFour {
 					array[i] = array[i + 1];
 					array[i + 1] = tmp;
 					flag = true;
+					counterPermutation++;
 				}
 			}
 		}
+		printArray(array);
+		System.out.println("Количество перестановок: " + counterPermutation);
 	}
 
 	private static void printArray(int[] array) {
