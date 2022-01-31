@@ -8,11 +8,72 @@
 
 package by.koroza.algorithmization.sorting;
 
+import java.util.Random;
+
 public class NumberFour {
 
 	public static void main(String[] args) {
-		
-
+		int lenght = arrayLengthInitialization();
+		int[] array = new int[lenght];
+		System.out.print("Массив не сортированный: ");
+		assigningRandomNumbersArray(array);
+		printArray(array);
+		System.out.print("Массив сортированный по возростанию: ");
+		sortingExchangesInAscendingOrder(array);
+		printArray(array);
+		System.out.print("Массив сортированный по убыванию: ");
+		sortingExchangesInDescendingOrder(array);
+		printArray(array);
 	}
 
+	private static int arrayLengthInitialization() {
+		Random rand = new Random();
+		int length = 0;
+		length = rand.nextInt(20) + 1;
+		return length;
+	}
+
+	private static void assigningRandomNumbersArray(int[] array) {
+		Random rand = new Random();
+		for (int i = 0; i < array.length; i++) {
+			array[i] = rand.nextInt(10);
+		}
+	}
+
+	private static void sortingExchangesInAscendingOrder(int[] array) {
+		boolean flag = true;
+		while (flag) {
+			flag = false;
+			for (int i = 0; i < array.length - 1; i++) {
+				if (array[i] > array[i + 1]) {
+					int tmp = array[i];
+					array[i] = array[i + 1];
+					array[i + 1] = tmp;
+					flag = true;
+				}
+			}
+		}
+	}
+
+	private static void sortingExchangesInDescendingOrder(int[] array) {
+		boolean flag = true;
+		while (flag) {
+			flag = false;
+			for (int i = 0; i < array.length - 1; i++) {
+				if (array[i] < array[i + 1]) {
+					int tmp = array[i];
+					array[i] = array[i + 1];
+					array[i + 1] = tmp;
+					flag = true;
+				}
+			}
+		}
+	}
+
+	private static void printArray(int[] array) {
+		for (int i = 0; i < array.length; i++) {
+			System.out.print(array[i] + " ");
+		}
+		System.out.println();
+	}
 }
