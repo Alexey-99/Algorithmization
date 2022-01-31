@@ -57,7 +57,6 @@ public class NumberFive {
 				}
 			}
 			array[j + 1] = value;
-			printArray(array);
 		}
 	}
 }
