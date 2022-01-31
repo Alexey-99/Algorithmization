@@ -18,8 +18,11 @@ public class NumberThree {
 		assigningRandomNumbersArray(array);
 		System.out.print("Массив не сортированный: ");
 		printArray(array);
-		sortSelection(array);
-		System.out.print("Массив сортированный: ");
+		System.out.print("Массив сортированный по возростанию: ");
+		sortSelectionInAscendinggOrder(array);
+		printArray(array);
+		sortSelectionInDescendingOrder(array);
+		System.out.print("Массив сортированный по убыванию: ");
 		printArray(array);
 	}
 
@@ -44,11 +47,25 @@ public class NumberThree {
 		System.out.println();
 	}
 
-	private static void sortSelection(int[] array) {
+	private static void sortSelectionInDescendingOrder(int[] array) {
 		for (int i = 0; i < array.length; i++) {
 			int minIndex = i;
 			for (int j = i; j < array.length; j++) {
 				if (array[j] > array[minIndex]) {
+					minIndex = j;
+				}
+			}
+			int tmp = array[i];
+			array[i] = array[minIndex];
+			array[minIndex] = tmp;
+		}
+	}
+	
+	private static void sortSelectionInAscendinggOrder(int[] array) {
+		for (int i = 0; i < array.length; i++) {
+			int minIndex = i;
+			for (int j = i; j < array.length; j++) {
+				if (array[j] < array[minIndex]) {
 					minIndex = j;
 				}
 			}
