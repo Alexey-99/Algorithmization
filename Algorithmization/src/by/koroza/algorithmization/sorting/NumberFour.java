@@ -38,7 +38,7 @@ public class NumberFour {
 		}
 	}
 
-	private static void sortingExchangesInAscendingOrder(int[] array) { // TODO ПОСЧИТАТЬ КОЛИЧЕСТВО ПЕРЕРСТАНОВОК
+	private static void sortingExchangesInAscendingOrder(int[] array) { 
 		boolean flag = true;
 		int counterPermutation = 0;
 		while (flag) {
@@ -57,7 +57,7 @@ public class NumberFour {
 		System.out.println("Количество перестановок: " + counterPermutation);
 	}
 
-	private static void sortingExchangesInDescendingOrder(int[] array) { // TODO ПОСЧИТАТЬ КОЛИЧЕСТВО ПЕРЕРСТАНОВОК
+	private static void sortingExchangesInDescendingOrder(int[] array) {
 		boolean flag = true;
 		int counterPermutation = 0;
 		while (flag) {
