@@ -16,21 +16,45 @@ public class NumberThree {
 		int length = arrayLengthInitialization();
 		int[] array = new int[length];
 		assigningRandomNumbersArray(array);
-		
-
+		System.out.print("Массив не сортированный: ");
+		printArray(array);
+		sortSelection(array);
+		System.out.print("Массив сортированный: ");
+		printArray(array);
 	}
-	
+
 	private static int arrayLengthInitialization() {
 		Random rand = new Random();
 		int length = 0;
 		length = rand.nextInt(20) + 1;
 		return length;
 	}
-	
+
 	private static void assigningRandomNumbersArray(int[] array) {
 		Random rand = new Random();
 		for (int i = 0; i < array.length; i++) {
 			array[i] = rand.nextInt(10);
+		}
+	}
+
+	private static void printArray(int[] array) {
+		for (int i = 0; i < array.length; i++) {
+			System.out.print(array[i] + " ");
+		}
+		System.out.println();
+	}
+
+	private static void sortSelection(int[] array) {
+		for (int i = 0; i < array.length; i++) {
+			int minIndex = i;
+			for (int j = i; j < array.length; j++) {
+				if (array[j] > array[minIndex]) {
+					minIndex = j;
+				}
+			}
+			int tmp = array[i];
+			array[i] = array[minIndex];
+			array[minIndex] = tmp;
 		}
 	}
 }
