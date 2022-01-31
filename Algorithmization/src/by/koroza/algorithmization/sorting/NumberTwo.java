@@ -13,19 +13,37 @@ public class NumberTwo {
 		int lengthFirstArray = matrixLengthInitialization();
 		int lengthSecondArray = matrixLengthInitialization();
 		int[] firstArray = new int[lengthFirstArray + lengthSecondArray];
+		fillingFirstArrayWithRandomNumbersAndSortingThem(firstArray, lengthFirstArray);
+		int[] secondArray = new int[lengthSecondArray];
+		fillingSecondArrayWithRandomNumbersAndSortingThem(secondArray);
+		concatenatingFirstAndSecondArrayAndSortingIt(firstArray, secondArray);
+	}
+
+	private static void fillingFirstArrayWithRandomNumbersAndSortingThem(int[] firstArray, int lengthFirstArray) {
 		System.out.print("Первый массив без сортировки: ");
 		assigningRandomNumbersArray(firstArray, lengthFirstArray);
 		printArray(firstArray);
 		sortElementsArray(firstArray);
 		System.out.print("Первый массив c сортировкой: ");
 		printArray(firstArray);
-		int[] secondArray = new int[lengthSecondArray];
-		assigningRandomNumbersArray(secondArray, lengthSecondArray);
+	}
+
+	private static void fillingSecondArrayWithRandomNumbersAndSortingThem(int[] secondArray) {
+		assigningRandomNumbersArray(secondArray, secondArray.length);
 		System.out.print("Второй массив без сортировки: ");
 		printArray(secondArray);
 		sortElementsArray(secondArray);
-		System.out.print("Второй массив с сортировки: ");
+		System.out.print("Второй массив с сортировкой: ");
 		printArray(secondArray);
+	}
+
+	private static void concatenatingFirstAndSecondArrayAndSortingIt(int[] firstArray, int[] secondArray) {
+		concatenationFirstAndSecondArrays(firstArray, secondArray);
+		System.out.print("Первый массив (после объединения) без сортировки: ");
+		printArray(firstArray);
+		sortElementsArray(firstArray);
+		System.out.print("Первый массив (после объединения) c сортировкой: ");
+		printArray(firstArray);
 	}
 
 	private static int matrixLengthInitialization() {
@@ -48,7 +66,7 @@ public class NumberTwo {
 		}
 		System.out.println();
 	}
-	
+
 	private static void sortElementsArray(int[] array) {
 		for (int i = 0; i < array.length; i++) {
 			for (int j = i; j < array.length; j++) {
@@ -61,4 +79,9 @@ public class NumberTwo {
 		}
 	}
 
+	private static void concatenationFirstAndSecondArrays(int[] firstArray, int[] secondArray) {
+		for (int i = 0; i < secondArray.length; i++) {
+			firstArray[i] = secondArray[i];
+		}
+	}
 }
