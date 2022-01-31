@@ -23,28 +23,28 @@ public class NumberFive {
 		insertionSortAscending(array);
 		printArray(array);
 	}
-	
+
 	private static int arrayLengthInitialization() {
 		Random rand = new Random();
 		int length = 0;
 		length = rand.nextInt(20) + 1;
 		return length;
 	}
-	
+
 	private static void assigningRandomNumbersArray(int[] array) {
 		Random rand = new Random();
 		for (int i = 0; i < array.length; i++) {
 			array[i] = rand.nextInt(10);
 		}
 	}
-	
+
 	private static void printArray(int[] array) {
 		for (int i = 0; i < array.length; i++) {
 			System.out.print(array[i] + " ");
 		}
 		System.out.println();
 	}
-	
+
 	private static void insertionSortAscending(int[] array) {
 		for (int i = 0; i < array.length; i++) {
 			int value = array[i];
@@ -52,7 +52,7 @@ public class NumberFive {
 			for (; j >= 0; j--) {
 				if (value < array[j]) {
 					array[j + 1] = array[j];
-				}else {
+				} else {
 					break;
 				}
 			}
