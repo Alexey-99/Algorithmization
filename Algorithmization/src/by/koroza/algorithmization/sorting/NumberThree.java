@@ -15,6 +15,7 @@ public class NumberThree {
 	public static void main(String[] args) {
 		int length = arrayLengthInitialization();
 		int[] array = new int[length];
+		assigningRandomNumbersArray(array);
 		
 
 	}
