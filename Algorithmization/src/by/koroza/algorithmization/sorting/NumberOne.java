@@ -9,10 +9,10 @@ import java.util.Random;
 public class NumberOne {
 
 	public static void main(String[] args) {
-		int lengthFirstArray = matrixLengthInitialization();
+		int lengthFirstArray = arrayLengthInitialization();
 		int numberK = findingRandomNumber(lengthFirstArray);
 		System.out.println("Индекс элемента после которого будет вставляться второй массив чисел: " + numberK);
-		int lengthSecondArray = matrixLengthInitialization();
+		int lengthSecondArray = arrayLengthInitialization();
 		int[] firstArray = new int[lengthFirstArray + lengthSecondArray];
 		int[] secondArray = new int[lengthSecondArray];
 		assigningRandomNumbersArray(firstArray, lengthFirstArray);
@@ -26,7 +26,7 @@ public class NumberOne {
 		printArray(firstArray);
 	}
 
-	private static int matrixLengthInitialization() {
+	private static int arrayLengthInitialization() {
 		Random rand = new Random();
 		int length = 0;
 		length = rand.nextInt(20) + 1;

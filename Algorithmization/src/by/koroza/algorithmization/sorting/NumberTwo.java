@@ -10,8 +10,8 @@ import java.util.Random;
 public class NumberTwo {
 
 	public static void main(String[] args) {
-		int lengthFirstArray = matrixLengthInitialization();
-		int lengthSecondArray = matrixLengthInitialization();
+		int lengthFirstArray = arrayLengthInitialization();
+		int lengthSecondArray = arrayLengthInitialization();
 		int[] firstArray = new int[lengthFirstArray + lengthSecondArray];
 		fillingFirstArrayWithRandomNumbersAndSortingThem(firstArray, lengthFirstArray);
 		int[] secondArray = new int[lengthSecondArray];
@@ -46,7 +46,7 @@ public class NumberTwo {
 		printArray(firstArray);
 	}
 
-	private static int matrixLengthInitialization() {
+	private static int arrayLengthInitialization() {
 		Random rand = new Random();
 		int length = 0;
 		length = rand.nextInt(20) + 1;
