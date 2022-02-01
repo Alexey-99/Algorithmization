@@ -11,7 +11,7 @@ import java.util.Random;
 
 public class NumberSix {
 
-	public static void main(String[] args) { // TODO РАЗОБРАТЬСЯ
+	public static void main(String[] args) { 
 		int length = arrayLengthInitialization();
 		double[] array = new double[length];
 		System.out.print("Массив не сортированный: ");

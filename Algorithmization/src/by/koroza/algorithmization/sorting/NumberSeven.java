@@ -83,9 +83,7 @@ public class NumberSeven {
 								numberFMinusOne = firstArray[f - 1];
 								firstArray[f - 1] = tmp;
 							}
-						} /*else if (f == 0) {
-							firstArray[f] = numberFMinusOne;
-						}*/
+						}
 					}
 				}
 			}
