@@ -10,8 +10,8 @@ import java.util.Random;
 public class NumberSeven {
 
 	public static void main(String[] args) {
-		int lengthfirstArray = arrayLengthInitialization();
-		int lengthSecondArray = arrayLengthInitialization();
+		int lengthfirstArray = 5;// arrayLengthInitialization();
+		int lengthSecondArray = 3;// arrayLengthInitialization();
 		double[] firstArray = new double[lengthfirstArray + lengthSecondArray];
 		assigningRandomNumbersArray(firstArray, lengthfirstArray);
 		sortArray(firstArray);
@@ -20,6 +20,8 @@ public class NumberSeven {
 		assigningRandomNumbersArray(secondArray, lengthSecondArray);
 		sortArray(secondArray);
 		printArray(secondArray);
+		unionArrays(firstArray, secondArray);
+		printArray(firstArray);
 	}
 
 	private static int arrayLengthInitialization() {
@@ -32,27 +34,62 @@ public class NumberSeven {
 	private static void assigningRandomNumbersArray(double[] array, int lengthfirstArray) {
 		Random rand = new Random();
 		for (int i = 0; i < lengthfirstArray; i++) {
-			array[i] = rand.nextInt(10);
+			array[i] = rand.nextInt(10) + 1;
 		}
 	}
 
 	private static void sortArray(double[] array) {
-		for (int i = 0; i < array.length; i++) {
-			for (int j = i; j < array.length; j++) {
-				if (array[i] > array[j]) {
-					double tmp = array[i];
-					array[i] = array[j];
-					array[j] = tmp;
+		int gar = array.length / 2;
+		while (gar > 0) {
+			for (int i = 0; i < array.length - gar; i++) {
+				int j = i;
+				while (j >= 0) {
+					if (array[j] > array[j + gar]) {
+						double tmp = array[j];
+						array[j] = array[j + gar];
+						array[j + gar] = tmp;
+					}
+					j--;
 				}
 			}
+			gar = gar / 2;
 		}
 	}
-	
+
 	private static void printArray(double[] array) {
 		System.out.println();
 		for (int i = 0; i < array.length; i++) {
 			System.out.print(array[i] + " ");
 		}
 		System.out.println();
+	}
+
+	private static void unionArrays(double[] firstArray, double[] secondArray) {
+		double numberFMinusOne = 0;
+		for (int i = 0; i < secondArray.length; i++) {
+			for (int j = 0; j < firstArray.length - 1; j++) {
+				if (secondArray[i] >= firstArray[j] && secondArray[i] < firstArray[j + 1]) {
+					System.out.println("Вставка элемента " + secondArray[i] + " между элементами " + firstArray[j]
+							+ " и " + firstArray[j + 1]);
+					for (int f = j; f >= 0; f--) {
+						if (f > 0) {
+							if (f == j) {
+								numberFMinusOne = firstArray[f - 1];
+								firstArray[f - 1] = firstArray[f];   
+								firstArray[j] = secondArray[i];                 
+							} else if (f < j) {
+								double tmp = numberFMinusOne;
+								numberFMinusOne = firstArray[f - 1];
+								firstArray[f - 1] = tmp;
+							}
+						} else if (f == 0) {
+							firstArray[f] = numberFMinusOne;
+						}
+					}
+				}else {
+					
+				}
+			}
+		}
 	}
 }
