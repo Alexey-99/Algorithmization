@@ -10,8 +10,8 @@ import java.util.Random;
 public class NumberSeven {
 
 	public static void main(String[] args) {
-		int lengthfirstArray = 5;// arrayLengthInitialization();
-		int lengthSecondArray = 3;// arrayLengthInitialization();
+		int lengthfirstArray = arrayLengthInitialization();
+		int lengthSecondArray = arrayLengthInitialization();
 		double[] firstArray = new double[lengthfirstArray + lengthSecondArray];
 		assigningRandomNumbersArray(firstArray, lengthfirstArray);
 		sortArray(firstArray);
@@ -64,14 +64,12 @@ public class NumberSeven {
 		System.out.println();
 	}
 
-	private static void unionArrays(double[] firstArray, double[] secondArray) { // TODO СДЕЛАТЬ ЕСЛИ МАКСИМАЛЬНЫЙ ЭЛЕМЕНТ ВТОРОГО МАССИВА БОЛЬ ИЛИ РАВНО МАКСИМАЛЬНОГО ЭЛЕМЕНТА ПЕРВОГО МАССИВА
+	private static void unionArrays(double[] firstArray, double[] secondArray) {
 		double numberFMinusOne = 0;
 		for (int i = 0; i < secondArray.length; i++) {
 			for (int j = 0; j < firstArray.length - 1; j++) {
 				if ((secondArray[i] >= firstArray[j] && secondArray[i] < firstArray[j + 1])
-						|| (secondArray[i] >= firstArray[firstArray.length - 1] && j == firstArray.length - 1) ) {
-					System.out.println("Вставка элемента " + secondArray[i] + " между элементами " + firstArray[j]
-							+ " и " + firstArray[j + 1]);
+						|| (secondArray[i] >= firstArray[firstArray.length - 1] && j == firstArray.length - 2)) {
 					for (int f = j; f >= 0; f--) {
 						if (f > 0) {
 							if (f == j) {
