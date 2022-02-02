@@ -64,6 +64,13 @@ public class NumberSeven {
 		}
 		System.out.println();
 	}
+	
+	private static void unionArrays(double[] firstArray, double[] secondArray) {
+		double[] arrayThree = new double[firstArray.length + secondArray.length];
+		transferElementsArrayAndSortHim(firstArray, arrayThree);
+		unionArraysTwoArrays(arrayThree, secondArray);
+		printArray(arrayThree);
+	}
 
 	private static void unionArraysTwoArrays(double[] firstArray, double[] secondArray) {
 		double numberFMinusOne = 0;
@@ -87,13 +94,6 @@ public class NumberSeven {
 				}
 			}
 		}
-	}
-
-	private static void unionArrays(double[] firstArray, double[] secondArray) {
-		double[] arrayThree = new double[firstArray.length + secondArray.length];
-		transferElementsArrayAndSortHim(firstArray, arrayThree);
-		unionArraysTwoArrays(arrayThree, secondArray);
-		printArray(arrayThree);
 	}
 	
 	private static void transferElementsArrayAndSortHim(double[] firstArray, double[] arrayThree) {
