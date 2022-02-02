@@ -12,16 +12,18 @@ public class NumberSeven {
 	public static void main(String[] args) {
 		int lengthfirstArray = arrayLengthInitialization();
 		int lengthSecondArray = arrayLengthInitialization();
-		double[] firstArray = new double[lengthfirstArray + lengthSecondArray];
+		double[] firstArray = new double[lengthfirstArray];
 		assigningRandomNumbersArray(firstArray, lengthfirstArray);
 		sortArray(firstArray);
+		System.out.print("Первый массив: ");
 		printArray(firstArray);
 		double[] secondArray = new double[lengthSecondArray];
 		assigningRandomNumbersArray(secondArray, lengthSecondArray);
 		sortArray(secondArray);
+		System.out.print("Второй массив: ");
 		printArray(secondArray);
+		System.out.print("Массив объединяющий первый и второй массив: ");
 		unionArrays(firstArray, secondArray);
-		printArray(firstArray);
 	}
 
 	private static int arrayLengthInitialization() {
@@ -57,14 +59,13 @@ public class NumberSeven {
 	}
 
 	private static void printArray(double[] array) {
-		System.out.println();
 		for (int i = 0; i < array.length; i++) {
 			System.out.print(array[i] + " ");
 		}
 		System.out.println();
 	}
 
-	private static void unionArrays(double[] firstArray, double[] secondArray) {
+	private static void unionArraysTwoArrays(double[] firstArray, double[] secondArray) {
 		double numberFMinusOne = 0;
 		for (int i = 0; i < secondArray.length; i++) {
 			for (int j = 0; j < firstArray.length - 1; j++) {
@@ -86,5 +87,19 @@ public class NumberSeven {
 				}
 			}
 		}
+	}
+
+	private static void unionArrays(double[] firstArray, double[] secondArray) {
+		double[] arrayThree = new double[firstArray.length + secondArray.length];
+		transferElementsArrayAndSortHim(firstArray, arrayThree);
+		unionArraysTwoArrays(arrayThree, secondArray);
+		printArray(arrayThree);
+	}
+	
+	private static void transferElementsArrayAndSortHim(double[] firstArray, double[] arrayThree) {
+		for (int i = 0; i < firstArray.length; i++) {
+			arrayThree[i] = firstArray[i];
+		}
+		sortArray(arrayThree);
 	}
 }
