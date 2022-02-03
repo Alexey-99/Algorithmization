@@ -6,10 +6,20 @@
 
 package by.koroza.algorithmization.subroutines;
 
+import java.util.Random;
+
 public class NumberOne {
 
 	public static void main(String[] args) {
+		int numberA = assigningRandomNumbersArray();
+		int numberB = assigningRandomNumbersArray();
+	}
 
+	private static int assigningRandomNumbersArray() {
+		int number = 0;
+		Random rand = new Random();
+		number = rand.nextInt(30) + 1;
+		return number;
 	}
 
 }
