@@ -44,7 +44,6 @@ public class NumberOne {
 				nod--;
 			}
 		}
-
 		System.out.println("НОД = " + nod);
 		return nod;
 	}
