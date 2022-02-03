@@ -9,10 +9,7 @@ public class NumberTwo {
 	public static void main(String[] args) {
 		int[] arrayNumbers = new int[4];
 		assigningRandomNumbers(arrayNumbers);
-		System.out.println("Первое число: " + arrayNumbers[0]);
-		System.out.println("Второе число: " + arrayNumbers[1]);
-		System.out.println("Третье число: " + arrayNumbers[2]);
-		System.out.println("Четвёртое число: " + arrayNumbers[3]);
+		printArray(arrayNumbers);
 		calculationNOD(arrayNumbers);
 	}
 
@@ -51,5 +48,12 @@ public class NumberTwo {
 			}
 		}
 		return min;
+	}
+	
+	private static void printArray(int[] array) {
+		for (int i = 0; i < array.length; i++) {
+			System.out.print(array[i] + " ");
+		}
+		System.out.println();
 	}
 }
