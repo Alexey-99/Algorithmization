@@ -13,6 +13,8 @@ public class NumberOne {
 	public static void main(String[] args) {
 		int numberA = assigningRandomNumbers();
 		int numberB = assigningRandomNumbers();
+		System.out.println("Первое число: " + numberA);
+		System.out.println("Второе число: " + numberB);
 		calculationNOK(numberA, numberB);
 	}
 
@@ -30,8 +32,6 @@ public class NumberOne {
 	}
 
 	private static int calculationNOD(int numberA, int numberB) {
-		System.out.println(numberA);
-		System.out.println(numberB);
 		int minNumber = findMinNumber(numberA, numberB);
 		int nod = minNumber;
 		boolean flag = true;
