@@ -26,13 +26,15 @@ public class NumberTwo {
 	}
 	
 	private static int calculationNOD(int[] arrayNumbers) {
-		int minNumber = findMinNumber(int[] arrayNumbers);
+		int minNumber = findMinNumber(arrayNumbers);
 		int nod = minNumber;
 		boolean flag = true;
 		while (flag == true && nod > 0) {
 			flag = false;
-			if (numberA % nod != 0 || numberB % nod != 0) {
-				flag = true;
+			for (int i = 0; i < arrayNumbers.length; i++) {
+				if (arrayNumbers[i] % nod != 0) {
+					flag = true;
+				}
 			}
 			if (flag == true) {
 				nod--;
