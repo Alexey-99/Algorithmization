@@ -47,7 +47,7 @@ public class NumberEight {
 		System.out.println();
 	}
 
-	private static void calculationCommonDenominator(int[] arrayP, int[] arrayQ) {
+	private static void calculationCommonDenominator(int[] arrayP, int[] arrayQ) { // TODO ОТСОРТИРОВАТЬ ДРОБИ
 		int commonDenominator = calculationCommonDivisor(arrayQ);
 		reductionFractions(arrayP, arrayQ, commonDenominator);
 		System.out.print("Числители: ");
