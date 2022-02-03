@@ -18,10 +18,12 @@ public class NumberEight {
 		int[] arrayP = new int[lengthArrayPAndQ];
 		int[] arrayQ = new int[lengthArrayPAndQ];
 		assigningRandomNumbersArray(arrayP);
+		System.out.print("Множители: ");
 		printArray(arrayP);
 		assigningRandomNumbersArray(arrayQ);
+		System.out.print("Знаменатели: ");
 		printArray(arrayQ);
-		calculationCommonDenominator(arrayQ);
+		calculationCommonDenominator(arrayP, arrayQ);
 	}
 
 	private static int arrayLengthInitialization() {
@@ -30,41 +32,52 @@ public class NumberEight {
 		length = rand.nextInt(20) + 1;
 		return length;
 	}
-	
+
 	private static void assigningRandomNumbersArray(int[] array) {
 		Random rand = new Random();
 		for (int i = 0; i < array.length; i++) {
 			array[i] = rand.nextInt(10) + 1;
 		}
 	}
-	
+
 	private static void printArray(int[] array) {
 		for (int i = 0; i < array.length; i++) {
 			System.out.print(array[i] + " ");
 		}
 		System.out.println();
 	}
-	
-	private static void calculationCommonDenominator(int[] arrayQ) {
-		calculationCommonDivisor(arrayQ);
+
+	private static void calculationCommonDenominator(int[] arrayP, int[] arrayQ) {
+		int commonDenominator = calculationCommonDivisor(arrayQ);
+		reductionFractions(arrayP, arrayQ, commonDenominator);
+		System.out.print("Числители: ");
+		printArray(arrayP);
+		System.out.print("Знаменатели: ");
+		printArray(arrayQ);
 	}
-	
-	private static void calculationCommonDivisor(int[] arrayQ) {
-		int number = 1;
+
+	private static int calculationCommonDivisor(int[] arrayQ) {
+		int commonDenominator = 1;
 		boolean flag = true;
 		while (flag == true) {
 			flag = false;
 			for (int i = 0; i < arrayQ.length; i++) {
-				if (number % arrayQ[i] != 0) {
+				if (commonDenominator % arrayQ[i] != 0) {
 					flag = true;
 				}
 			}
 			if (flag == true) {
-				number++;
+				commonDenominator++;
 			}
 		}
-		System.out.println("Множитель: " + number);
+		System.out.println("Общий знаменатель: " + commonDenominator);
+		return commonDenominator;
 	}
-	
-	
+
+	private static void reductionFractions(int[] arrayP, int[] arrayQ, int commonDenominator) {
+		for (int i = 0; i < arrayP.length; i++) {
+			arrayP[i] = arrayP[i] * (commonDenominator / arrayQ[i]);
+			arrayQ[i] = commonDenominator;
+		}
+	}
 }
