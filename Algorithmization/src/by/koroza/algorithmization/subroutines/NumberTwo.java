@@ -25,4 +25,29 @@ public class NumberTwo {
 		return number;
 	}
 	
+	private static int calculationNOD(int numberA, int numberB) {
+		int minNumber = findMinNumber(numberA, numberB);
+		int nod = minNumber;
+		boolean flag = true;
+		while (flag == true && nod > 0) {
+			flag = false;
+			if (numberA % nod != 0 || numberB % nod != 0) {
+				flag = true;
+			}
+			if (flag == true) {
+				nod--;
+			}
+		}
+		System.out.println("НОД = " + nod);
+		return nod;
+	}
+	
+	private static int findMinNumber(int numberA, int numberB) {
+		int min = numberA;
+		if (min > numberB) {
+			min = numberB;
+		}
+		return min;
+	}
+	
 }
