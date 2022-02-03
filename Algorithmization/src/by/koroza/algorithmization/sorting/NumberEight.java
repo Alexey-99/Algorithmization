@@ -18,7 +18,7 @@ public class NumberEight {
 		int[] arrayP = new int[lengthArrayPAndQ];
 		int[] arrayQ = new int[lengthArrayPAndQ];
 		assigningRandomNumbersArray(arrayP);
-		System.out.print("Множители: ");
+		System.out.print("Числители: ");
 		printArray(arrayP);
 		assigningRandomNumbersArray(arrayQ);
 		System.out.print("Знаменатели: ");
@@ -47,9 +47,10 @@ public class NumberEight {
 		System.out.println();
 	}
 
-	private static void calculationCommonDenominator(int[] arrayP, int[] arrayQ) { // TODO ОТСОРТИРОВАТЬ ДРОБИ
+	private static void calculationCommonDenominator(int[] arrayP, int[] arrayQ) { 
 		int commonDenominator = calculationCommonDivisor(arrayQ);
 		reductionFractions(arrayP, arrayQ, commonDenominator);
+		sortingElementsArray(arrayP);
 		System.out.print("Числители: ");
 		printArray(arrayP);
 		System.out.print("Знаменатели: ");
@@ -79,5 +80,24 @@ public class NumberEight {
 			arrayP[i] = arrayP[i] * (commonDenominator / arrayQ[i]);
 			arrayQ[i] = commonDenominator;
 		}
+	}
+
+	private static void sortingElementsArray(int[] arrayP) {
+		int half = arrayP.length / 2;
+		while (half > 0) {
+			for (int i = 0; i < arrayP.length - half; i++) {
+				int j = i;
+				while (j >= 0) {
+					if (arrayP[j] > arrayP[j + half]) {
+						int tmp = arrayP[j];
+						arrayP[j] = arrayP[j + half];
+						arrayP[j + half] = tmp;
+					}
+					j--;
+				}
+			}
+			half = half / 2;
+		}
+
 	}
 }
