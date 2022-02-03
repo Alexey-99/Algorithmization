@@ -15,7 +15,7 @@ public class NumberTwo {
 		System.out.println("Второе число: " + numberB);
 		System.out.println("Третье число: " + numberC);
 		System.out.println("Четвёртое число: " + numberD);
-		
+		int[] arrayNumbers = {numberA, numberB, numberC, numberD};
 	}
 	
 	private static int assigningRandomNumbers() {
@@ -25,8 +25,8 @@ public class NumberTwo {
 		return number;
 	}
 	
-	private static int calculationNOD(int numberA, int numberB) {
-		int minNumber = findMinNumber(numberA, numberB);
+	private static int calculationNOD(int[] arrayNumbers) {
+		int minNumber = findMinNumber(int[] arrayNumbers);
 		int nod = minNumber;
 		boolean flag = true;
 		while (flag == true && nod > 0) {
@@ -42,10 +42,12 @@ public class NumberTwo {
 		return nod;
 	}
 	
-	private static int findMinNumber(int numberA, int numberB) {
-		int min = numberA;
-		if (min > numberB) {
-			min = numberB;
+	private static int findMinNumber(int[] arrayNumbers) {
+		int min = arrayNumbers[0];
+		for (int i = 0; i < arrayNumbers.length; i++) {
+			if (min > arrayNumbers[i]) {
+				min = arrayNumbers[i];
+			}
 		}
 		return min;
 	}
