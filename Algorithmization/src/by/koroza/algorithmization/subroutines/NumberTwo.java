@@ -7,27 +7,26 @@ import java.util.Random;
 public class NumberTwo {
 
 	public static void main(String[] args) {
-		int numberA = assigningRandomNumbers();
-		int numberB = assigningRandomNumbers();
-		int numberC = assigningRandomNumbers();
-		int numberD = assigningRandomNumbers();
-		System.out.println("Первое число: " + numberA);
-		System.out.println("Второе число: " + numberB);
-		System.out.println("Третье число: " + numberC);
-		System.out.println("Четвёртое число: " + numberD);
-		int[] arrayNumbers = {numberA, numberB, numberC, numberD};
+		int[] arrayNumbers = new int[4];
+		assigningRandomNumbers(arrayNumbers);
+		System.out.println("Первое число: " + arrayNumbers[0]);
+		System.out.println("Второе число: " + arrayNumbers[1]);
+		System.out.println("Третье число: " + arrayNumbers[2]);
+		System.out.println("Четвёртое число: " + arrayNumbers[3]);
+		calculationNOD(arrayNumbers);
 	}
-	
-	private static int assigningRandomNumbers() {
-		int number = 0;
+
+	private static void assigningRandomNumbers(int[] arrayNumbers) {
 		Random rand = new Random();
-		number = rand.nextInt(30) + 1;
-		return number;
+		for (int i = 0; i < arrayNumbers.length; i++) {
+			arrayNumbers[i] = rand.nextInt(1000) + 1;
+		}
 	}
-	
+
 	private static int calculationNOD(int[] arrayNumbers) {
 		int minNumber = findMinNumber(arrayNumbers);
 		int nod = minNumber;
+
 		boolean flag = true;
 		while (flag == true && nod > 0) {
 			flag = false;
@@ -43,7 +42,7 @@ public class NumberTwo {
 		System.out.println("НОД = " + nod);
 		return nod;
 	}
-	
+
 	private static int findMinNumber(int[] arrayNumbers) {
 		int min = arrayNumbers[0];
 		for (int i = 0; i < arrayNumbers.length; i++) {
@@ -53,5 +52,4 @@ public class NumberTwo {
 		}
 		return min;
 	}
-	
 }
