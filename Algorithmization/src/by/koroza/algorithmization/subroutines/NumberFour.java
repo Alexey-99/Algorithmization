@@ -25,7 +25,7 @@ public class NumberFour {
 		Random rand = new Random();
 		int amountPoints = 0;
 		do {
-			amountPoints = rand.nextInt(10);
+			amountPoints = rand.nextInt(20);
 		} while (amountPoints < 3);
 		return amountPoints;
 	}
@@ -40,7 +40,6 @@ public class NumberFour {
 	private static void findingPairsPointsWithLargestDistanceBetweenPoints(int[] arrayCoordinateXAndY) {
 		double maximumDistance = calculatingMaximumDistanceBetweenPoints(arrayCoordinateXAndY);
 		findingPointsWithMaximumDistanceBetweenThem(arrayCoordinateXAndY, maximumDistance);
-
 	}
 
 	private static double calculatingMaximumDistanceBetweenPoints(int[] arrayCoordinateXAndY) {
@@ -66,7 +65,7 @@ public class NumberFour {
 		System.out.println("Точки между которыми максимальное расстоянием " + maximumDistance + ", перечиселы ниже: ");
 		double distance = 0;
 		for (int i = 0; i < arrayCoordinateXAndY.length; i += 2) {
-			for (int j = 0; j < arrayCoordinateXAndY.length; j += 2) {
+			for (int j = i + 2; j < arrayCoordinateXAndY.length; j += 2) {
 				int xPointA = arrayCoordinateXAndY[i];
 				int yPointA = arrayCoordinateXAndY[i + 1];
 				int xPointB = arrayCoordinateXAndY[j];
@@ -78,7 +77,9 @@ public class NumberFour {
 					build.append(" и X - ").append(xPointB).append(" Y - ").append(yPointB);
 					System.out.println(build);
 				}
+
 			}
 		}
+		System.out.println("Точки между которыми максимальное расстоянием " + maximumDistance + ", перечиселы ниже: ");
 	}
 }
