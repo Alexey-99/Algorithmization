@@ -13,13 +13,12 @@ public class NumberFive {
 		int[] array = new int[lengthArray];
 		assigningRandomNumbersArray(array);
 		findingSecondLargestNumber(array);
-
 	}
 
 	private static int initializationLengthArray() {
 		Random rand = new Random();
 		int lengthArray = 0;
-		lengthArray = rand.nextInt(10) + 1;
+		lengthArray = rand.nextInt(20) + 2;
 		return lengthArray;
 	}
 
@@ -32,21 +31,9 @@ public class NumberFive {
 
 	private static void findingSecondLargestNumber(int[] array) {
 		printArray(array);
-		int maxNumber = findingMaximumNumberArray(array);
 		sortArray(array);
-		printArray(array);
-
-	}
-
-	private static int findingMaximumNumberArray(int[] array) {
-		int maxNumber = array[0];
-		for (int i = 0; i < array.length; i++) {
-			if (maxNumber < array[i]) {
-				maxNumber = array[i];
-			}
-		}
-		System.out.println(maxNumber);
-		return maxNumber;
+		int secondMaxNumber = findingSecondLargestNumberInSortingArray(array);
+		System.out.println("Второе по величине число равно: " + secondMaxNumber);
 	}
 
 	private static void printArray(int[] array) {
@@ -72,7 +59,17 @@ public class NumberFive {
 			}
 			half = half / 2;
 		}
+	}
 
+	private static int findingSecondLargestNumberInSortingArray(int[] array) {
+		int maxNumber = array[0];
+		int secondMaxNumber = array[0];
+		int index = 0;
+		while (array[index] == maxNumber) {
+			index++;
+		}
+		secondMaxNumber = array[index];
+		return secondMaxNumber;
 	}
 
 }
