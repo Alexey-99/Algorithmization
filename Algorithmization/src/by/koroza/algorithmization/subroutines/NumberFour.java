@@ -18,14 +18,14 @@ public class NumberFour {
 		int planeLength = 10;
 		int[][] plane = new int[planeLength][planeLength];
 		fillingRandomNumbersArrayCoordinates(arrayCoordinateXAndY, plane);
-		calculatingMaximumDistanceBetweenPoints(arrayCoordinateXAndY);
+		findingPairsPointsWithLargestDistanceBetweenPoints(arrayCoordinateXAndY);
 	}
 
 	private static int initializationAmountPoints() {
 		Random rand = new Random();
 		int amountPoints = 0;
 		do {
-			amountPoints = rand.nextInt(20);
+			amountPoints = rand.nextInt(10);
 		} while (amountPoints < 3);
 		return amountPoints;
 	}
@@ -37,18 +37,46 @@ public class NumberFour {
 		}
 	}
 
-	private static void calculatingMaximumDistanceBetweenPoints(int[] arrayCoordinateXAndY) {
+	private static void findingPairsPointsWithLargestDistanceBetweenPoints(int[] arrayCoordinateXAndY) {
+		double maximumDistance = calculatingMaximumDistanceBetweenPoints(arrayCoordinateXAndY);
+		findingPointsWithMaximumDistanceBetweenThem(arrayCoordinateXAndY, maximumDistance);
+
+	}
+
+	private static double calculatingMaximumDistanceBetweenPoints(int[] arrayCoordinateXAndY) {
 		double maximumDistance = 0;
 		double distance = 0;
 		for (int i = 0; i < arrayCoordinateXAndY.length; i += 2) {
-			for (int j = i; j < arrayCoordinateXAndY.length; j += 2) {
-				int xPointA = i;
-				int yPointA = i + 1;
-				int xPointB = j;
-				int yPointB = j + 1;
+			for (int j = 0; j < arrayCoordinateXAndY.length; j += 2) {
+				int xPointA = arrayCoordinateXAndY[i];
+				int yPointA = arrayCoordinateXAndY[i + 1];
+				int xPointB = arrayCoordinateXAndY[j];
+				int yPointB = arrayCoordinateXAndY[j + 1];
 				distance = sqrt(pow(xPointB - xPointA, 2) + pow(yPointB - yPointA, 2));
 				if (maximumDistance < distance) {
 					maximumDistance = distance;
+				}
+			}
+		}
+		return maximumDistance;
+	}
+
+	private static void findingPointsWithMaximumDistanceBetweenThem(int[] arrayCoordinateXAndY,
+			double maximumDistance) {
+		System.out.println("Точки между которыми максимальное расстоянием " + maximumDistance + ", перечиселы ниже: ");
+		double distance = 0;
+		for (int i = 0; i < arrayCoordinateXAndY.length; i += 2) {
+			for (int j = 0; j < arrayCoordinateXAndY.length; j += 2) {
+				int xPointA = arrayCoordinateXAndY[i];
+				int yPointA = arrayCoordinateXAndY[i + 1];
+				int xPointB = arrayCoordinateXAndY[j];
+				int yPointB = arrayCoordinateXAndY[j + 1];
+				distance = sqrt(pow(xPointB - xPointA, 2) + pow(yPointB - yPointA, 2));
+				if (distance == maximumDistance) {
+					StringBuilder build = new StringBuilder();
+					build.append("X - ").append(xPointA).append(" Y - ").append(yPointA);
+					build.append(" и X - ").append(xPointB).append(" Y - ").append(yPointB);
+					System.out.println(build);
 				}
 			}
 		}
