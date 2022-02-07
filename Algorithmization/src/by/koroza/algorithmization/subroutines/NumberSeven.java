@@ -5,23 +5,25 @@ package by.koroza.algorithmization.subroutines;
 public class NumberSeven {
 
 	public static void main(String[] args) {
-		sumFactorialCalculation();
+		int minFactorial = 1;
+		int maxFactorial = 9;
+		sumFactorialCalculation(minFactorial, maxFactorial);
 	}
 
-	private static void sumFactorialCalculation() {
-		int[] arrayFactorial = calculationFactorialsOddNumbers();
+	private static void sumFactorialCalculation(int minFactorial, int maxFactorial) {
+		int[] arrayFactorial = calculationFactorialsOddNumbers(minFactorial, maxFactorial);
 		int sum = calculationSum(arrayFactorial);
 		System.out.println("Сумма факториалов всех нечетных чисел от 1 до 9 равна: " + sum);
 	}
 
-	private static int[] calculationFactorialsOddNumbers() {
-		int numberOddNumbersFromOneToNine = 5;
+	private static int[] calculationFactorialsOddNumbers(int minFactorial, int maxFactorial) {
+		int numberOddNumbersFromOneToNine = numberFactorialsOddNumbers(minFactorial, maxFactorial);
 		int[] arrayFactorial = new int[numberOddNumbersFromOneToNine];
 		int index = 0;
-		int factorial = 1;
-		for (int i = 1; i < 9; i += 2) {
-			factorial = 1;
-			int j = 1;
+		int factorial = minFactorial;
+		for (int i = minFactorial; i < maxFactorial; i += 2) {
+			factorial = minFactorial;
+			int j = minFactorial;
 			while (j <= i) {
 				factorial *= j;
 				j++;
@@ -40,4 +42,13 @@ public class NumberSeven {
 		return sum;
 	}
 
+	private static int numberFactorialsOddNumbers(int minFactorial, int maxFactorial) {
+		int count = 0;
+		for (int i = minFactorial; i <= maxFactorial; i++) {
+			if (i % 2 != 0) {
+				count++;
+			}
+		}
+		return count;
+	}
 }
