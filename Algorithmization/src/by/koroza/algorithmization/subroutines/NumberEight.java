@@ -20,7 +20,7 @@ public class NumberEight {
 	private static int initializationLengthArray() {
 		Random rand = new Random();
 		int lengthArray = 0;
-		int minlengthArray = 4;
+		int minlengthArray = 3;
 		lengthArray = rand.nextInt(20) + minlengthArray;
 		return lengthArray;
 	}
@@ -46,7 +46,12 @@ public class NumberEight {
 	private static int initializationIndexElementBeginningCalculationSum(int[] array) {
 		Random rand = new Random();
 		int indexElementBeginningCalculationSum = 0;
-		indexElementBeginningCalculationSum = rand.nextInt(array.length - 4);
+		if (array.length == 3) {
+			indexElementBeginningCalculationSum = 0;
+		} else {
+			indexElementBeginningCalculationSum = rand.nextInt(array.length - 4);
+		}
+
 		return indexElementBeginningCalculationSum;
 	}
 
