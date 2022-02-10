@@ -20,7 +20,7 @@ public class NumberSixteen {
 		Random rand = new Random();
 		int number = 0;
 		do {
-			number = rand.nextInt(5);
+			number = rand.nextInt(9);
 		} while (number < 1);
 		return number;
 	}
