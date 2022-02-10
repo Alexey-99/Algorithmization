@@ -7,7 +7,7 @@ package by.koroza.algorithmization.subroutines;
 
 import java.util.Random;
 
-public class NumberSixty {
+public class NumberSixteen {
 
 	public static void main(String[] args) {
 		int numberN = initializationNumber();
