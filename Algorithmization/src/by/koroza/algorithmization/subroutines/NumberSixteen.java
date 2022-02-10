@@ -96,5 +96,4 @@ public class NumberSixteen {
 	private static void printResultSum(int sum, int count) {
 		System.out.println("В сумме " + sum + " количество чётных цифр равно " + count);
 	}
-
 }
