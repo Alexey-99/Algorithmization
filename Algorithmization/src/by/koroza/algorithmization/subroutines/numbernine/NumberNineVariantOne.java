@@ -21,10 +21,6 @@ public class NumberNineVariantOne {
 			sideT = initializationSide();
 			validationSides = validationSides(sideX, sideY, sideZ, sideT);
 		} while (validationSides == false);
-		sideX = 2;
-		sideY = 12;
-		sideZ = 11;
-		sideT = 20;
 		System.out.println("Сторона X = " + sideX);
 		System.out.println("Сторона Y = " + sideY);
 		System.out.println("Сторона Z = " + sideZ);
