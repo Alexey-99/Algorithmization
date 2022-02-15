@@ -9,16 +9,23 @@ import java.util.Random;
 public class NumberNineVariantOne {
 
 	public static void main(String[] args) {
-		double sideX = initializationSide();
-		double sideY = initializationSide();
-		double sideZ = initializationSide();
-		double sideT = initializationSide();
+		boolean validationSides = true;
+		double sideX = 0;
+		double sideY = 0;
+		double sideZ = 0;
+		double sideT = 0;
+		do {
+			sideX = initializationSide();
+			sideY = initializationSide();
+			sideZ = initializationSide();
+			sideT = initializationSide();
+			validationSides = validationSides(sideX, sideY, sideZ, sideT);
+		} while (validationSides == false);
 		System.out.println("Сторона X = " + sideX);
 		System.out.println("Сторона Y = " + sideY);
 		System.out.println("Сторона Z = " + sideZ);
 		System.out.println("Сторона T = " + sideT);
 		areaCalculation(sideX, sideY, sideZ, sideT);
-
 	}
 
 	private static int initializationSide() {
