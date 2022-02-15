@@ -39,4 +39,14 @@ public class NumberNineVariantOne {
 		double semiPerimeter = (sideX + sideY + sideZ + sideT) / 2;
 		return semiPerimeter;
 	}
+
+	private static boolean validationSides(double sideX, double sideY, double sideZ, double sideT) {
+		boolean flag = true;
+		if ((sideX < sideY + sideZ + sideT) && (sideY < sideX + sideZ + sideT) && (sideZ < sideX + sideY + sideT)
+				&& (sideT < sideX + sideY + sideZ)) {
+		} else {
+			flag = false;
+		}
+		return flag;
+	}
 }
