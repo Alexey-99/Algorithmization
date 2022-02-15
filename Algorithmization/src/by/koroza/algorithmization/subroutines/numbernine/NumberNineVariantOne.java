@@ -1,5 +1,5 @@
 /* Даны числа X, Y, Z, Т — длины сторон четырехугольника. 
- * Написать метод(методы) вычисления его площади, если угол между сторонами длиной X и Y— прямой. 
+ * Написать метод(методы) вычисления его площади, если угол между сторонами длиной X и Y — прямой. 
  * */
 
 package by.koroza.algorithmization.subroutines.numbernine;
@@ -21,6 +21,10 @@ public class NumberNineVariantOne {
 			sideT = initializationSide();
 			validationSides = validationSides(sideX, sideY, sideZ, sideT);
 		} while (validationSides == false);
+		sideX = 2;
+		sideY = 12;
+		sideZ = 11;
+		sideT = 20;
 		System.out.println("Сторона X = " + sideX);
 		System.out.println("Сторона Y = " + sideY);
 		System.out.println("Сторона Z = " + sideZ);
@@ -39,7 +43,8 @@ public class NumberNineVariantOne {
 		double semiPerimeter = semiPerimeterCalculation(sideX, sideY, sideZ, sideT);
 		double area = Math.sqrt(
 				(semiPerimeter - sideX) * (semiPerimeter - sideY) * (semiPerimeter - sideZ) * (semiPerimeter - sideT));
-		System.out.println("Площадь " + area);
+		System.out.printf("Площадь ");
+		System.out.printf("%.2f", area);
 	}
 
 	private static double semiPerimeterCalculation(double sideX, double sideY, double sideZ, double sideT) {
