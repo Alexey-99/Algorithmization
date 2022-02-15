@@ -2,11 +2,11 @@
  * Написать метод(методы) вычисления его площади, если угол между сторонами длиной X и Y— прямой. 
  * */
 
-package by.koroza.algorithmization.subroutines;
+package by.koroza.algorithmization.subroutines.numbernine;
 
 import java.util.Random;
 
-public class NumberNine {
+public class NumberNineVariantOne {
 
 	public static void main(String[] args) {
 		double sideX = initializationSide();
